@@ -7,9 +7,9 @@ const Blogs = () => {
     <div className='w-full flex flex-col md:flex-row gap-4 sm:gap-6 lg:gap-8 my-4 sm:my-6 lg:my-8 px-4 sm:px-6 lg:px-8'>
       {/* Left Section - Blog Introduction */}
       <div className='w-full md:w-[35%] flex flex-col justify-start p-4 sm:p-6 lg:p-8 gap-2 sm:gap-3'>
-        <h1 className="text-xl sm:text-2xl font-extrabold text-[#B07FD3]">From The Blogs</h1>
-        <p className="text-lg sm:text-xl font-bold text-[#999999]">Explore the world of print with us on our blog!</p>
-        <p className="text-sm sm:text-md font-bold text-[#5D5D5D] text-pretty">From selecting the perfect paper to crafting remarkable, high-quality prints, join us as we dive into every detail that brings your creative vision to life.</p>
+        <h1 className="text-xl sm:text-3xl font-extrabold text-[#B07FD3]">From The Blogs</h1>
+        <p className="text-lg sm:text-2xl font-bold text-[#999999]">Explore the world of print with us on our blog!</p>
+        <p className="text-sm sm:text-xl font-bold text-[#5D5D5D] text-pretty">From selecting the perfect paper to crafting remarkable, high-quality prints, join us as we dive into every detail that brings your creative vision to life.</p>
       </div>
 
       {/* Middle Section - First Blog Banner */}

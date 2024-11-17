@@ -25,7 +25,7 @@ const Home = () => {
         <WFHBanner />
         <Info />
       </div>
-      <Footer />
+      <Footer page="About Us" />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import ItemCard from './ItemCard'
 
 const AllCategories = () => {
   return (
-    <div className="px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <div className="px-4 sm:px-6 lg:px-8 ">
       {/* Section Title with decorative lines */}
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         <div className="h-[1px] bg-gray-300 flex-grow"></div>

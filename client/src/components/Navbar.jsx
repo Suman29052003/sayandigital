@@ -5,17 +5,23 @@ import searchIcon from "../assets/icons/search.png";
 import profileIcon from "../assets/icons/profile.png";
 import cartIcon from "../assets/icons/cart.png";
 import hamIcon from "../assets/icons/hamburger.png";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const logoClickHandler = () => {
+    navigate("/");
+    window.location.reload();
+  }
 
   return (
-    <nav className='w-full bg-bgPrimary h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative'>
+    <nav className='w-full bg-bgPrimary h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-10' >
       {/* Store logo */}
       <img 
         src={storeLogo} 
         alt="store logo" 
-        className="w-[150px] sm:w-[200px] object-contain" 
+        className="w-[150px] sm:w-[200px] object-contain cursor-pointer" 
+        onClick={logoClickHandler}
       />
 
       {/* Search bar - Hidden on mobile, visible on tablet and up */}
@@ -36,16 +42,19 @@ const Navbar = () => {
 
       {/* Navigation icons - Hidden on mobile */}
       <div className="profile hidden md:flex items-center gap-4 sm:gap-8">
-        <img 
+        {/* <img 
           src={profileIcon} 
           alt="profile icon" 
           className='w-[24px] sm:w-[28px] h-[24px] sm:h-[28px] object-contain cursor-pointer transition-transform duration-300 hover:scale-110' 
-        />
+        /> */}
+        <span className="cursor-pointer transition-transform duration-300 hover:scale-110">Log In / Sign Up</span>
+        <div className="flex items-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-110">
         <img 
           src={cartIcon} 
           alt="cart icon" 
-          className='w-[24px] sm:w-[28px] h-[24px] sm:h-[28px] object-contain cursor-pointer transition-transform duration-300 hover:scale-110' 
+          className='w-[24px] sm:w-[28px] h-[24px] sm:h-[28px] object-contain ' 
         />
+        <span className="">Cart</span></div>
       </div>
 
       {/* Mobile menu button */}
