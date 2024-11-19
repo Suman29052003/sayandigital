@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/user.route');
 // Middleware
 app.use(cors({
-  origin: [process.env.FRONTEND_URL, 'http://localhost:3000'],
+  origin: ['https://sayandigital.vercel.app', 'http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
