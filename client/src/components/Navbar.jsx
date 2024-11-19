@@ -38,33 +38,36 @@ const Navbar = () => {
     setFirstName('');
     setIsMenuOpen(false);
     navigate('/');
+    window.location.reload();
   };
 
   const AuthButtons = () => (
-    isLoggedIn ? (
-      <div className="flex items-center gap-4">
-        <span className="text-gray-700">
-          Hi, {firstName}
-        </span>
-        <button 
-          onClick={handleLogout}
-          className="cursor-pointer transition-transform duration-300 hover:scale-110 text-gray-700"
+    <div className="flex items-center gap-4">
+      {isLoggedIn ? (
+        <>
+          <span className="text-gray-700 font-semibold text-lg">
+            Hello, {firstName}
+          </span>
+          <button 
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
+          >
+            Logout
+          </button>
+        </>
+      ) : (
+        <Link 
+          to="/login"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
         >
-          Logout
-        </button>
-      </div>
-    ) : (
-      <Link 
-        to="/login"
-        className="cursor-pointer transition-transform duration-300 hover:scale-110 text-gray-700"
-      >
-        Login
-      </Link>
-    )
+          Login
+        </Link>
+      )}
+    </div>
   );
 
   return (
-    <nav className='w-full bg-bgPrimary h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-10'>
+    <nav className='w-full bg-bgPrimary h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-20'>
       {/* Logo */}
       <Link to="/" className="w-[150px] sm:w-[200px]">
         <img 
@@ -126,11 +129,6 @@ const Navbar = () => {
           {/* Mobile Navigation Links */}
           <div className="flex flex-col border-t border-gray-100">
             <div className="p-4 border-b border-gray-100">
-              {isLoggedIn && (
-                <span className="block text-gray-700 mb-2">
-                  Hi, {firstName}
-                </span>
-              )}
               <AuthButtons />
             </div>
             <Link 

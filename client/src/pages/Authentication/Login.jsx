@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import baseURL from '../../baseURL';
 const Login = () => {
+  
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -31,6 +32,9 @@ const Login = () => {
 
       const data = await response.json();
       console.log('Login Response:', data);
+      console.log('Login Response:', data.user.firstName);
+
+
       
       if (!response.ok) {
         throw new Error(data.message || 'Login failed');
@@ -38,7 +42,7 @@ const Login = () => {
 
       // Store token and firstName
       localStorage.setItem('token', data.token);
-      localStorage.setItem('firstName', data.firstName);
+      localStorage.setItem('firstName', data.user.firstName);
       
       navigate('/');
     } catch (err) {
