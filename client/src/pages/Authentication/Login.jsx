@@ -40,7 +40,7 @@ const Login = () => {
       });
 
       const data = await response.json(); // Parse JSON response
-      console.log("Login Response:", data); // Log the response for debugging
+      // console.log("Login Response:", data); // Log the response for debugging
 
       // Check if the response is not OK
       if (!response.ok) {

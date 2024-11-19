@@ -17,10 +17,10 @@ const AboutUs = () => {
         </div>
 
         <div className="info flex flex-col gap-3 my-8">
-          <h1 className="text-2xl font-bold ">
+          <h1 className="text-xl sm:text-2xl font-bold ">
             Welcome to Sayan Digital! We simplify printing and gifting for you.
           </h1>
-          <p className="text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
+          <p className="text-md sm:text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
             With over 6 years of experience in the print industry, Sayan Digital
             is your go-to print-on-demand platform based in West Bengal. We
             proudly serve over 10,000 offline customers and offer a wide range
@@ -33,10 +33,10 @@ const AboutUs = () => {
             Let Sayan Digital help bring your creative ideas to life!
           </p>
 
-          <h1 className="text-2xl font-bold">
+          <h1 className="text-xl sm:text-2xl font-bold">
             The Story of Sayan Digital: From Humble Beginnings to Big Dreams
           </h1>
-          <p className="text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
+          <p className="text-md sm:text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
             In 2015, Sayan Saha had a dream — a vision of creating a business
             that would not just print, but bring ideas to life. With a passion
             for design and a keen eye for detail, Sayan opened the doors of
@@ -71,10 +71,10 @@ const AboutUs = () => {
             of hard work, passion, and an unwavering commitment to turning
             creative visions into reality.
           </p>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-xl sm:text-2xl font-bold">
             We Can't Wait to Hear From You!
           </h2>
-          <p className="text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
+          <p className="text-md sm:text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
             Sayan Digital is a one-stop shop for both print and personalized
             gift services. Whether you're a business owner or an individual,
             we’re here to make your printing experience hassle-free. We
@@ -84,8 +84,8 @@ const AboutUs = () => {
             personalized gifts, and process photo prints—all at unbeatable
             prices.
           </p>
-          <h2 className="text-2xl font-bold">Our Mission</h2>
-          <p className="text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
+          <h2 className="text-xl sm:text-2xl font-bold">Our Mission</h2>
+          <p className="text-md sm:text-lg text-[#969696] font-semibold text-pretty leading-relaxed">
             At Sayan Digital, we have a two-fold mission. First, we aim to put a
             smile on every customer’s face by providing a seamless, easy
             printing experience. Second, we strive to grow with scalability and
