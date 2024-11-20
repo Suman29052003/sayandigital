@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/user.route');
 // Middleware
 app.use(cors({
-  origin: "*",
+  origin: [process.env.FRONTEND_URL],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
