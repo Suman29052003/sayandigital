@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/user.route');
 // Middleware
 app.use(cors({
-  origin: ['https://sayandigital.vercel.app'],
+  origin: "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

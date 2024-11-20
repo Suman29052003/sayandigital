@@ -1,3 +1,3 @@
-const baseURL = "https://sayandigital-server.vercel.app"
+const baseURL = "http://localhost:8000"
 
 export default baseURL;
