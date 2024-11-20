@@ -1,3 +1,3 @@
-const baseURL = import.meta.env.VITE_APP_BASE_URL || 'http://localhost:3000';
+const baseURL = "https://sayandigital-server.vercel.app"
 
 export default baseURL;
