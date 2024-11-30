@@ -19,7 +19,7 @@ const Stationery = () => {
       </div>
 
       {/* Grid container for stationery items */}
-      <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 justify-items-center my-3 sm:my-5 '>
+      <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5  gap-3 sm:gap-4 justify-items-center place-content-center my-3 sm:my-5 '>
         {stationery.map((item) => (
           <ItemCard 
             key={item.id} 

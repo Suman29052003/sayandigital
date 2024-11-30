@@ -9,8 +9,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen">
-      <Navbar />
+    <div className="w-full min-h-screen">
       <div className="content">
         <div className="info_banner w-full h-auto my-8">
           <img src={banner} alt="" />
@@ -98,7 +97,7 @@ const AboutUs = () => {
           <img src={deliveryBanner} alt="" className="w-full h-full" />
         </div>
       </div>
-      <Footer page="Go Back to Home" />
+
     </div>
   );
 };

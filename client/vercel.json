@@ -1,4 +1,6 @@
 {
-    "rewrites":[{"source":"/(.*)",
-    "destination":"/index.html"}]
-}
+    "rewrites": [
+      { "source": "/api/(.*)", "destination": "https://sayandigital.vercel.app/api/$1" }
+    ]
+  }
+  

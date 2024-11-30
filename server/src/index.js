@@ -4,11 +4,12 @@ const morgan = require('morgan');
 require('dotenv').config();
 const connectDB = require('./config/database');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const userRoutes = require('./routes/user.route');
 // Middleware
 app.use(cors({
-  origin: [process.env.FRONTEND_URL],
+  // origin: [process.env.FRONTEND_URL],
+  origin: '*', // Allow requests from any origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

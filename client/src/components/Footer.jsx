@@ -5,17 +5,17 @@ import instagramIcon from "../assets/icons/instagram.png";
 import youtubeIcon from "../assets/icons/youtube.png";
 import { Link } from "react-router-dom";
 
-const Footer = ({page}) => {
+const Footer = (props) => {
 
   return (
-    <div className="w-full h-auto my-2 sm:my-4 py-6">
+    <div className="w-full h-auto my-2 sm:my-4 py-6  bg-white">
       {/* Horizontal divider line */}
       <div className="line w-full h-[1px] bg-[#9F9F9F] mb-4 sm:mb-6"></div>
 
       {/* Footer content container */}
       <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 sm:justify-between">
        {
-        page === "Go Back to Home" ? (
+        props.page === "Go Back to Home" ? (
           <Link 
             to="/" 
             className="text-base sm:text-lg font-semibold text-[#999999] hover:text-gray-700 order-1 sm:order-none"

@@ -13,7 +13,6 @@ import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div className="">
-      <Navbar />
       <Links />
       <div className="">
         <ItemsSlider />
@@ -25,7 +24,7 @@ const Home = () => {
         <WFHBanner />
         <Info />
       </div>
-      <Footer page="About Us" />
+
     </div>
   );
 };
