@@ -1,10 +1,11 @@
-import React from 'react'
-import { allCategories } from '../../data/allCategories'
-import ItemCard from './ItemCard'
+import React from 'react';
+import { allCategories } from '../../data/allCategories';
+import ItemCard from './ItemCard';
+import { Link } from 'react-router-dom';
 
 const AllCategories = () => {
   return (
-    <div className="px-4 sm:px-6 lg:px-8 ">
+    <div className="px-4 sm:px-6 lg:px-8">
       {/* Section Title with decorative lines */}
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         <div className="h-[1px] bg-gray-300 flex-grow"></div>
@@ -12,19 +13,20 @@ const AllCategories = () => {
         <div className="h-[1px] bg-gray-300 flex-grow"></div>
       </div>
 
-      {/* Grid container - 2 columns on mobile, existing responsive layout for larger screens */}
+      {/* Grid container */}
       <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 justify-items-center my-3 sm:my-5'>
         {allCategories.map((item) => (
-          <ItemCard 
-            key={item.id} 
-            {...item} 
-            width={137} 
-            height={170}  // Slightly reduced height for better mobile display
-          />
+          <Link to={`/product/${item.title}`} key={item.id}> {/* Dynamically link to product page using item.id */}
+            <ItemCard 
+              {...item} 
+              width={137} 
+              height={170}  // Slightly reduced height for better mobile display
+            />
+          </Link>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default AllCategories
+export default AllCategories;
