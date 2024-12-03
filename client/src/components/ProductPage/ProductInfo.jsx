@@ -9,20 +9,19 @@ import mug_img_1 from "../../assets/itemsImage/customizeCoffeeMugs/color_cup_1.p
 import mug_img_2 from "../../assets/itemsImage/customizeCoffeeMugs/color_cup_2.png";
 import mug_img_3 from "../../assets/itemsImage/customizeCoffeeMugs/color_cup_3.png";
 
-import banner_1 from '../../assets/itemsImage/flex&Banners/banner_1.png'
-import banner_2 from '../../assets/itemsImage/flex&Banners/banner_2.png'
-import banner_3 from '../../assets/itemsImage/flex&Banners/banner_3.png'
-import banner_4 from '../../assets/itemsImage/flex&Banners/banner_4.png'
+import banner_1 from "../../assets/itemsImage/flex&Banners/banner_1.png";
+import banner_2 from "../../assets/itemsImage/flex&Banners/banner_2.png";
+import banner_3 from "../../assets/itemsImage/flex&Banners/banner_3.png";
+import banner_4 from "../../assets/itemsImage/flex&Banners/banner_4.png";
 
 import CustomProduct from "./CustomProduct";
 import CustomFlex from "./CutsomFlex";
 
 const ProductInfo = () => {
-
   const { route } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   // const images = [mug_img_1, mug_img_2, mug_img_3];
-  const images = [banner_1,banner_2,banner_3,banner_4]
+  const images = [banner_1, banner_2, banner_3, banner_4];
 
   const nextImage = () => {
     setCurrentImageIndex((currentImageIndex + 1) % images.length);
@@ -35,7 +34,7 @@ const ProductInfo = () => {
   };
 
   return (
-    <div className="w-full grid grid-cols-2 p-6 m-4 gap-4">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 p-4 m-2 gap-4">
       <div className="_productImage w-full h-full relative">
         <button
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2"

@@ -7,6 +7,7 @@ import Signup from "./pages/Authentication/Signup";
 import ProductPage from "./pages/ProductPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BusinessCardPage from "./pages/perItemPages/businessCardPage";
 
 const App = () => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const App = () => {
   }, [location.pathname]); // Dependency on pathname
 
   return (
-    <div className="flex flex-col min-h-screen max-w-[1380px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col min-h-screen max-w-[1300px] w-full mx-auto px-4 sm:px-6 lg:px-8">
       <Navbar />
       <div className="flex-grow">
         <Routes>
@@ -37,6 +38,8 @@ const App = () => {
           <Route path="/product" element={<ProductPage />} />
           {/*product page for banner*/}
           <Route path="/product/:route" element={<ProductPage />} />
+          {/*item page for business card */}
+          <Route path="/businessCard" element={<BusinessCardPage />} />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}
