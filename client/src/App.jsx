@@ -8,22 +8,45 @@ import ProductPage from "./pages/ProductPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BusinessCardPage from "./pages/perItemPages/businessCardPage";
+import CalenderPage from "./pages/perItemPages/CalenderPage";
 
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
 
   useEffect(() => {
-    // Update footer text based on the current route
-    if (location.pathname === "/") {
-      setFooterText("About Us");
-    } else {
-      setFooterText("Go Back to Home");
-    }
+    const updateFooterText = () => {
+      switch (location.pathname) {
+        case "/":
+          setFooterText("About Us");
+          break;
+        case "/about-us":
+          setFooterText("Go Back to Home");
+          break;
+        case "/login":
+          setFooterText("Signup");
+          break;
+        case "/signup":
+          setFooterText("Login");
+          break;
+        case "/product":
+          setFooterText("Go Back to Home");
+          break;
+        case "/product/:route":
+          setFooterText("Go Back to Home");
+          break;
+        case "/businessCard":
+          setFooterText("Go Back to Home");
+          break;
+        default:
+          setFooterText("Go Back to Home");
+      }
+    };
+    updateFooterText();
   }, [location.pathname]); // Dependency on pathname
 
   return (
-    <div className="flex flex-col min-h-screen max-w-[1300px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col min-h-screen max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
       <Navbar />
       <div className="flex-grow">
         <Routes>
@@ -39,7 +62,9 @@ const App = () => {
           {/*product page for banner*/}
           <Route path="/product/:route" element={<ProductPage />} />
           {/*item page for business card */}
-          <Route path="/businessCard" element={<BusinessCardPage />} />
+          <Route path="/product/businesscards" element={<BusinessCardPage />} />
+          {/*item page for calender */}
+          <Route path="/product/Calendar" element={<CalenderPage />} />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

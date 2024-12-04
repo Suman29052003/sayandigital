@@ -68,10 +68,8 @@ const ProductInfo = () => {
       </div>
 
       <div className="_productDetails w-full m-auto">
-        {/* {
-          route==="Banners"?console.log("banner"):console.log("not Banner")
-        } */}
-        {route === "Banners" ? (
+
+        {route === "banners" ? (
           <CustomFlex />
         ) : (
           <div>

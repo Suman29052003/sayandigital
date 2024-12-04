@@ -1,8 +1,9 @@
 import React from "react";
+import ItemCard from "./ItemCard";
 
 const Info = () => {
   return (
-    <div className="w-full my-4 sm:my-6 lg:my-8 px-4 sm:px-6 lg:px-8 flex flex-col gap-4 sm:gap-6">
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-4 sm:gap-6">
       {/* Main Heading */}
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#4C4C4C]">
         Sayan Digital: Your Destination for Innovation and Excellence in Printing
@@ -58,18 +59,18 @@ const Info = () => {
       {/* Section 4: Call to Action and Contact Information */}
       <div className="space-y-2 sm:space-y-3">
         <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-black">
-          Glad to have you on board with Sayan Digital! What's next?
+          Glad to have you on board! Get in touch with us today to discuss your
+          project and let's bring your vision to life.
         </h2>
         <p className="text-sm sm:text-base text-[#999999] text-pretty font-semibold">
-          Order online or get in touch with us at +91-8597507902 for custom
-          gifts, employee joining kits, printed marketing materials, business
-          signage, and promotional products. Sayan Digital is your trusted partner
-          for print and gifting solutions. It's time you experienced the
-          Sayan Digital difference!
+          Contact us at <a href="mailto:info@sayandigital.com">sayana177123@gmail.com</a> or call us at +91 85975 07902 to get started.
         </p>
+        {/* <button className="bg-[#4C4C4C] text-white py-2 px-4 rounded-md hover:bg-[#333333]">
+          Get Started
+        </button> */}
       </div>
     </div>
   );
 };
 
-export default Info;
+export default Info
