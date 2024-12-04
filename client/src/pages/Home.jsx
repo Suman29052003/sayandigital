@@ -9,7 +9,6 @@ import Stationery from '../components/Home/Stationery';
 import Blogs from '../components/Home/Blogs';
 import WFHBanner from '../components/Home/WFHBanner';
 import Info from '../components/Home/Info';
-import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div className="">

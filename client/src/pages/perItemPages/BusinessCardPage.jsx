@@ -1,7 +1,7 @@
 import React from "react";
-import ProductCard from "../../components/productCard";
 import businessCardsList from "../../data/ItemList/businessCardsList";
 import { useParams } from "react-router-dom";
+import PreviewCard from "../../components/Cards/PreviewCard";
 
 const BusinessCardPage = () => {
   const { route } = useParams();
@@ -11,7 +11,7 @@ const BusinessCardPage = () => {
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {businessCardsList.map((card, index) => (
-        <ProductCard
+        <PreviewCard
           key={index}
           id={card.id}
           title={card.title}

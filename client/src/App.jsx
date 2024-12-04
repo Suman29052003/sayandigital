@@ -11,6 +11,7 @@ import BusinessCardPage from "./pages/perItemPages/businessCardPage";
 import CalenderPage from "./pages/perItemPages/CalenderPage";
 import CorporateGiftsPage from "./pages/perItemPages/CorporateGiftsPage";
 import CoffeeMugsPage from "./pages/perItemPages/CoffeeMugsPage";
+import PhotoFramePage from "./pages/perItemPages/PhotoFramePage";
 
 const App = () => {
   const location = useLocation();
@@ -74,6 +75,8 @@ const App = () => {
           />
           {/*item page for custom mugs */}
           <Route path="/product/custom-mugs" element={<CoffeeMugsPage />} />
+          {/*item page for photo frame */}
+          <Route path="/product/photo-frames" element={<PhotoFramePage />} />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

@@ -11,32 +11,38 @@ export const itemsData = [
     {
       id: 1,
       title: "Calendar & Diaries",
-      image: calendar
+      image: calendar,
+      route: 'calendar'
     },
   {
     id: 2,
     title: "Business Cards",
-    image: businessCards
+    image: businessCards,
+    route: 'businesscards'
   },
   {
     id: 3,
     title: "Corporate Gifts",
-    image: corporateGifts
+    image: corporateGifts,
+    route: 'corporate-gifts'
   },
   {
     id: 4,
     title: "Banners",
-    image: banners
+    image: banners,
+    route: 'banners',
   },
   {
     id: 5,
     title: "Mugs",
-    image: mugs
+    image: mugs,
+    route: 'custom-mugs',
   },
   {
     id: 6,
     title: "Photo Frames",
-    image: photoFrames
+    image: photoFrames,
+    route: 'photoframes',
   },
   {
     id: 7,

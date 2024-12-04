@@ -52,7 +52,7 @@ export const allCategories = [
     id: 6,
     title: 'Photo Frames',
     image: photoFrames,
-    route: 'photoframes',
+    route: 'photo-frames',
   },
   {
     id: 7,

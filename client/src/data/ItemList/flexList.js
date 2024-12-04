@@ -16,9 +16,5 @@ const flexList = [
         image_2: banner_2,
         image_3: banner_3,
         image_4: banner_4,
-        
-        
-        
-
     },
 ]

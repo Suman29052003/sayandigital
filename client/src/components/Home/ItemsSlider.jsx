@@ -4,6 +4,7 @@ import { itemsData } from '../../data/items'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
 import { startDrag, stopDrag } from '../../redux/features/carouselSlice';
+import { Link } from 'react-router-dom';
 
 const ItemsSlider = () => {
   // Refs and Redux state management
@@ -43,6 +44,7 @@ const ItemsSlider = () => {
         className="flex gap-3 sm:gap-7 overflow-x-hidden scroll-smooth px-4 sm:px-10 py-3 sm:py-5"
       >
         {itemsData.map((item) => (
+          <Link to={`/product/${item.route}`} key={item.id}>
           <ItemCard 
             key={item.id} 
             title={item.title} 
@@ -51,6 +53,7 @@ const ItemsSlider = () => {
             height={window.innerWidth < 640 ? 160 : 200}
             variant="full"
           />
+          </Link>
         ))}
       </div>
 
