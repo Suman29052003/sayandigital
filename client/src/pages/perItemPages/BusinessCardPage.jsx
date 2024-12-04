@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import businessCardsList from "../../data/ItemList/businessCardsList";
 import PreviewCard from "../../components/Cards/PreviewCard";
 

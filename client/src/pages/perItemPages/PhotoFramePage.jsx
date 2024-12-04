@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import photoFrameList from "../../data/ItemList/photoFrameList";
 import FrameCard from "../../components/Cards/PreviewCard";
 

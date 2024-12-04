@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import coffeeMugsList from '../../data/ItemList/coffeeMugsList'
-import ProductCard from '../../components/Cards/productCard'
 import PreviewCard from '../../components/Cards/PreviewCard'
 
 const CoffeeMugsPage = () => {
