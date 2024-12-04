@@ -7,7 +7,7 @@ import Signup from "./pages/Authentication/Signup";
 import ProductPage from "./pages/ProductPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BusinessCardPage from "./pages/perItemPages/businessCardPage";
+import BusinessCardPage from './pages/perItemPages/businessCardPage';
 import CalenderPage from "./pages/perItemPages/CalenderPage";
 import CorporateGiftsPage from "./pages/perItemPages/CorporateGiftsPage";
 import CoffeeMugsPage from "./pages/perItemPages/CoffeeMugsPage";
