@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "../../components/productCard";
-import businessCardsList from "../../data/ItemList.js/businessCardsList";
+import businessCardsList from "../../data/ItemList/businessCardsList";
 import { useParams } from "react-router-dom";
 
 const BusinessCardPage = () => {

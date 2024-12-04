@@ -20,7 +20,7 @@ export default function ProductCard({ id, title, subTitle, price, image }) {
         },
         height: {
           xs:'auto',
-          sm:350
+          sm:380
         }, // Allow height to adjust based on content
         display: 'flex',
         flexDirection: 'column',

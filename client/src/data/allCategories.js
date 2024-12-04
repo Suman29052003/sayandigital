@@ -46,7 +46,7 @@ export const allCategories = [
     id: 5,
     title: 'Mugs',
     image: mugs,
-    route: 'mugs',
+    route: 'custom-mugs',
   },
   {
     id: 6,

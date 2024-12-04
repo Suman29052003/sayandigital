@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import BusinessCardPage from "./pages/perItemPages/businessCardPage";
 import CalenderPage from "./pages/perItemPages/CalenderPage";
 import CorporateGiftsPage from "./pages/perItemPages/CorporateGiftsPage";
+import CoffeeMugsPage from "./pages/perItemPages/CoffeeMugsPage";
 
 const App = () => {
   const location = useLocation();
@@ -67,8 +68,12 @@ const App = () => {
           {/*item page for calender */}
           <Route path="/product/Calendar" element={<CalenderPage />} />
           {/*item page for corporate gifts */}
-          <Route path="/product/corporate-gifts" element={<CorporateGiftsPage />} />
-
+          <Route
+            path="/product/corporate-gifts"
+            element={<CorporateGiftsPage />}
+          />
+          {/*item page for custom mugs */}
+          <Route path="/product/custom-mugs" element={<CoffeeMugsPage />} />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

@@ -1,5 +1,5 @@
 import React from 'react'
-import  corporateGiftsList  from '../../data/ItemList.js/corporateGiftsList'
+import  corporateGiftsList  from '../../data/ItemList/corporateGiftsList'
 import ProductCard from '../../components/productCard'
 
 const CorporateGiftsPage = () => {
