@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BusinessCardPage from "./pages/perItemPages/businessCardPage";
 import CalenderPage from "./pages/perItemPages/CalenderPage";
+import CorporateGiftsPage from "./pages/perItemPages/CorporateGiftsPage";
 
 const App = () => {
   const location = useLocation();
@@ -65,6 +66,9 @@ const App = () => {
           <Route path="/product/businesscards" element={<BusinessCardPage />} />
           {/*item page for calender */}
           <Route path="/product/Calendar" element={<CalenderPage />} />
+          {/*item page for corporate gifts */}
+          <Route path="/product/corporate-gifts" element={<CorporateGiftsPage />} />
+
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

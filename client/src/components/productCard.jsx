@@ -9,20 +9,28 @@ import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-export default function ProductCard({id,title,subTitle,price,image}) {
+export default function ProductCard({ id, title, subTitle, price, image }) {
   return (
-<Card
+    <Card
       id={id}
       sx={{
-        width: 300, // Fixed width
-        height: 350, // Fixed height
+        width: {
+          xs: '80%', // Full width on extra small screens
+          sm: 300,    // Fixed width on small screens and up
+        },
+        height: {
+          xs:'auto',
+          sm:350
+        }, // Allow height to adjust based on content
         display: 'flex',
         flexDirection: 'column',
         boxShadow: 'lg',
         borderRadius: 'md',
         justifyContent: 'space-between',
+        margin: '6px', // Add margin for spacing
       }}
-    >      <CardOverflow>
+    >
+      <CardOverflow>
         <AspectRatio sx={{ minWidth: 1/4, aspectRatio: '16/9' }}>
           <img
             src={image}
@@ -33,7 +41,7 @@ export default function ProductCard({id,title,subTitle,price,image}) {
         </AspectRatio>
       </CardOverflow>
       <CardContent sx={{ flex: 1 }}>
-        <Typography level="body-md">{title}</Typography>
+        <Typography style={{ fontSize: '22px', fontWeight:'bold' }}>{title}</Typography>
         <Typography
           href="#product-card"
           color="neutral"
@@ -48,7 +56,7 @@ export default function ProductCard({id,title,subTitle,price,image}) {
 
         <Typography
           level="title-lg"
-          sx={{ mt: 1, fontWeight: 'xl' }}
+          sx={{ mt: 3, fontWeight: 'xl',color:'orange', display:'flex', justifyContent:'space-between'}}
           endDecorator={
             <Chip component="span" size="sm" variant="soft" color="success">
               Lowest price
@@ -61,7 +69,6 @@ export default function ProductCard({id,title,subTitle,price,image}) {
           (Only <b>7</b> left in stock!)
         </Typography> */}
       </CardContent>
-
     </Card>
   );
 }

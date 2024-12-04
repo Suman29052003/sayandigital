@@ -40,7 +40,7 @@ export const allCategories = [
     id: 4,
     title: 'Corporate Gifts',
     image: corporateGifts,
-    route: 'corporategifts',
+    route: 'corporate-gifts',
   },
   {
     id: 5,

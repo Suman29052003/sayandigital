@@ -6,13 +6,10 @@ import { useParams } from "react-router-dom";
 const BusinessCardPage = () => {
   const { route } = useParams();
 
-  // Check if the route parameter is "Business Cards"
-  if (route !== "Business Cards") {
-    return null; // Return null if the route is not "Business Cards"
-  }
+
 
   return (
-    <div className="flex md:flex-row flex-col gap-4 p-4 items-center">
+    <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {businessCardsList.map((card, index) => (
         <ProductCard
           key={index}
