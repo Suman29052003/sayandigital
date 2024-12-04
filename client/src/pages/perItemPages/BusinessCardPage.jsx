@@ -1,12 +1,8 @@
 import React from "react";
 import businessCardsList from "../../data/ItemList/businessCardsList";
-import { useParams } from "react-router-dom";
 import PreviewCard from "../../components/Cards/PreviewCard";
 
 const BusinessCardPage = () => {
-  const { route } = useParams();
-
-
 
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">

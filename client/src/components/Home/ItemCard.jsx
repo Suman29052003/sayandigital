@@ -13,7 +13,7 @@ const ItemCard = ({ title, image, width, height, variant = "full" }) => {
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
         />
       </div>
     )
