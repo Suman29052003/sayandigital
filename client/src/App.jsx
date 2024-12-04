@@ -14,6 +14,10 @@ import CoffeeMugsPage from "./pages/perItemPages/CoffeeMugsPage";
 import PhotoFramePage from "./pages/perItemPages/PhotoFramePage";
 
 const App = () => {
+
+
+
+
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
 
