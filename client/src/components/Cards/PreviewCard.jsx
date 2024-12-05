@@ -10,7 +10,7 @@ import Typography from "@mui/joy/Typography";
 export default function PreviewCard({image,title,id,subTitle}) {
   return (
     <Card id={id} sx={{ width: {
-      xs: "100%",
+      xs: "80%",
       sm:320
     }, height:380, boxShadow: "lg" }}>
       {/* Frame Image */}
