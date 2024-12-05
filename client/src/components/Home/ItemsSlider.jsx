@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import ItemCard from './ItemCard'
+import ItemCard from '../Cards/ItemCard'
 import { itemsData } from '../../data/items'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';

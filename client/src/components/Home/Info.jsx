@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCard from "./ItemCard";
+import ItemCard from "../Cards/ItemCard";
 
 const Info = () => {
   return (

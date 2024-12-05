@@ -1,7 +1,7 @@
 // Import necessary dependencies and components
 import React from 'react'
 import { stationery } from '../../data/Stationery'
-import ItemCard from './ItemCard'
+import ItemCard from '../Cards/ItemCard'
 
 const Stationery = () => {
   return (

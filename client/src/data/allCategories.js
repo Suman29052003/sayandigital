@@ -72,38 +72,28 @@ export const allCategories = [
     image: trophy,
     route: 'trophy',
   },
+
   {
     id: 10,
-    title: 'Lighters',
-    image: lighters,
-    route: 'lighters',
-  },
-  {
-    id: 11,
     title: 'Pen',
     image: pen,
     route: 'pen',
   },
   {
-    id: 12,
+    id: 11,
     title: 'Keychains',
     image: keychains,
     route: 'keychains',
   },
+
   {
-    id: 13,
-    title: 'Glass Frame',
-    image: glassFrame,
-    route: 'glassframe',
-  },
-  {
-    id: 14,
+    id: 12,
     title: 'Tiles',
     image: tiles,
     route: 'tiles',
   },
   {
-    id: 15,
+    id: 13,
     title: 'T-Shirts',
     image: tshirt,
     route: 'tshirts',

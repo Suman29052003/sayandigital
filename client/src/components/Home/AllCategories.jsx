@@ -1,6 +1,6 @@
 import React from 'react';
 import { allCategories } from '../../data/allCategories';
-import ItemCard from './ItemCard';
+import ItemCard from '../Cards/ItemCard';
 import { Link } from 'react-router-dom';
 
 const AllCategories = () => {

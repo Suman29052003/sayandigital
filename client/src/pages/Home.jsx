@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import Links from '../components/Home/Links';
 import ItemsSlider from '../components/Home/ItemsSlider';
 import Banner from '../components/Home/Banner';

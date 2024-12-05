@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { bannerData } from '../../data/banner'
-import ItemCard from './ItemCard'
+import ItemCard from '../Cards/ItemCard'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 const ShopByNeeds = () => {

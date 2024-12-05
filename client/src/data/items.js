@@ -52,6 +52,7 @@ export const itemsData = [
   {
     id: 8,
     title: "Standees",
-    image: standees
+    image: standees,
+    route:"standees"
   }
 ]; 
