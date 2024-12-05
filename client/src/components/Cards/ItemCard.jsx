@@ -26,8 +26,8 @@ const ItemCard = ({ title, image, width, height, variant = "full" }) => {
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       {/* Card Header - Title Section */}
-      <div className="p-3 border-b rounded-t-lg bg-[#09a5d3]">
-        <h3 className="text-white font-semibold text-lg truncate text-center">
+      <div className="p-3 border-b rounded-t-lg bg-[#FBFBFB]">
+        <h3 className="text-gray-600 font-semibold text-md truncate text-center">
           {title}
         </h3>
       </div>

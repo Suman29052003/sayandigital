@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import standeeList from "../../data/ItemList/standeeList";
-import PreviewCard from "../../components/Cards/PreviewCard";
+import ProductCard from "../../components/Cards/productCard";
 
 
 
@@ -11,12 +11,12 @@ const StandeePage = () => {
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {standeeList.map((card, index) => (
-        <PreviewCard
+        <ProductCard
           key={index}
           id={card.id}
           title={card.title}
           subTitle={card.subTitle}
-        //   price={card.price}
+          price={`₹ ${card.price}`}
           image={card.image}
         />
       ))}

@@ -18,6 +18,7 @@ import TrophyPage from "./pages/perItemPages/TrophyPage";
 import PenPage from "./pages/perItemPages/PenPage";
 import KeyChainPage from "./pages/perItemPages/KeyChainPage";
 import TilesPage from "./pages/perItemPages/TilesPage";
+import TShirtPage from "./pages/perItemPages/TShirtPage";
 
 const App = () => {
   const location = useLocation();
@@ -71,7 +72,7 @@ const App = () => {
           {/*product page for banner*/}
           <Route path="/product/:route" element={<ProductPage />} />
           {/*item page for business card */}
-          <Route path="/product/businesscards" element={<BusinessCardPage />} />
+          <Route path="/product/business-cards" element={<BusinessCardPage />} />
           {/*item page for calender */}
           <Route path="/product/Calendar" element={<CalenderPage />} />
           {/*item page for corporate gifts */}
@@ -91,6 +92,9 @@ const App = () => {
           <Route path="/product/pen" element={<PenPage />} />
           <Route path="/product/keychains" element={<KeyChainPage />} />
           <Route path="/product/tiles" element={<TilesPage />} />
+          <Route path="/product/tshirts" element={<TShirtPage />} />
+
+          
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

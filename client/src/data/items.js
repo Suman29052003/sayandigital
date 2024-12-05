@@ -42,15 +42,10 @@ export const itemsData = [
     id: 6,
     title: "Photo Frames",
     image: photoFrames,
-    route: 'photoframes',
+    route: 'photo-frames',
   },
   {
     id: 7,
-    title: "Photo Gifts",
-    image: photoGifts
-  },
-  {
-    id: 8,
     title: "Standees",
     image: standees,
     route:"standees"

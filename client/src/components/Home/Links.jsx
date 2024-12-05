@@ -2,7 +2,7 @@ import React from 'react'
 
 const Links = () => {
   return (
-    <div className='w-full mx-auto my-3 sm:my-5 flex items-center justify-center bg-[#f8f9fa] h-auto sm:h-[40px] py-2 sm:py-0'>
+    <div className='w-full mx-auto my-3 sm:my-5 flex items-center justify-center bg-[#C6E7FF] h-auto sm:h-[40px] py-2 sm:py-0'>
       {/* Navigation list container - full width on mobile, 80% on desktop */}
       <ul className="w-[95%] sm:w-[80%] flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-2 sm:gap-4 font-normal text-[#5f2677] text-sm sm:text-base">
         {/* Navigation items with hover effects */}

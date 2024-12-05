@@ -29,7 +29,7 @@ const ItemsSlider = () => {
   };
 
   return (
-    <div className='relative w-full my-3 sm:my-5 bg-gradient-to-r from-[#33393b] from-40% to-[#09a5d3] h-[200px] sm:h-[250px] flex items-center'>
+    <div className='relative w-full my-3 sm:my-5 bg-gradient-to-r from-[#FFDDAE] from-40% to-[#C6E7FF] h-[200px] sm:h-[250px] flex items-center'>
       {/* Left Navigation Button */}
       <button 
         onClick={() => scroll('left')}

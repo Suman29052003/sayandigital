@@ -28,7 +28,7 @@ export const allCategories = [
     id: 2,
     title: 'Business Cards',
     image: businessCard,
-    route: 'businesscards',
+    route: 'business-cards',
   },
   {
     id: 3,

@@ -9,7 +9,7 @@ import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-export default function ProductCard({ id, title, subTitle, price, image }) {
+export default function ProductCard({ id, title, subTitle, price, image, onBuy }) {
   return (
     <Card
       id={id}
@@ -20,7 +20,7 @@ export default function ProductCard({ id, title, subTitle, price, image }) {
         },
         height: {
           xs:'auto',
-          sm:380
+          sm:410
         }, // Allow height to adjust based on content
         display: 'flex',
         flexDirection: 'column',
@@ -68,6 +68,14 @@ export default function ProductCard({ id, title, subTitle, price, image }) {
         {/* <Typography level="body-sm">
           (Only <b>7</b> left in stock!)
         </Typography> */}
+        <Button
+          variant="solid"
+          color="primary"
+          sx={{ mt: 2 }}
+          onClick={onBuy}
+        >
+          Buy Now
+        </Button>
       </CardContent>
     </Card>
   );

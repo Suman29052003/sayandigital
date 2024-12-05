@@ -10,11 +10,11 @@ import WFHBanner from '../components/Home/WFHBanner';
 import Info from '../components/Home/Info';
 const Home = () => {
   return (
-    <div className="">
+    <div className="bg-[#]">
       <Links />
       <div className="">
-        <ItemsSlider />
         <Banner />
+        <ItemsSlider />
         <ShopByNeeds />
         <AllCategories />
         <Stationery />

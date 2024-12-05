@@ -67,7 +67,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className='w-full bg-bgPrimary h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-20'>
+    <nav className='w-full bg-[#C6E7FF] h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-20'>
       {/* Logo */}
       <Link to="/" className="w-[150px] sm:w-[200px]">
         <img 
