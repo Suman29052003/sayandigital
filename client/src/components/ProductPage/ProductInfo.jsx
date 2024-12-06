@@ -11,11 +11,10 @@ import banner_4 from "../../assets/itemsImage/flex&Banners/banner_4.png";
 import CustomProduct from "./CustomProduct";
 import CustomFlex from "./CutsomFlex";
 
-
 const ProductInfo = ({
   title,
   subTitle,
-  images = [], // Default to an empty array
+  images=[], // Default to an empty array
   price,
   des_1,
   des_2,
@@ -29,13 +28,13 @@ const ProductInfo = ({
   const isBannersRoute = route === "banners";
   const currentImages = isBannersRoute ? bannerImages : images;
 
-  const nextImage = () => {
+  const handleNextImage = () => {
     if (currentImages.length > 0) {
       setCurrentImageIndex((currentImageIndex + 1) % currentImages.length);
     }
   };
 
-  const previousImage = () => {
+  const handlePreviousImage = () => {
     if (currentImages.length > 0) {
       setCurrentImageIndex(
         (currentImageIndex - 1 + currentImages.length) % currentImages.length
@@ -45,10 +44,10 @@ const ProductInfo = ({
 
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 p-4 m-2 gap-4">
-      <div className="_productImage w-full h-full relative ">
+      <div className="_productImage w-full h-full relative">
         <button
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2"
-          onClick={previousImage}
+          onClick={handlePreviousImage}
         >
           <img
             src={leftIcon}
@@ -58,20 +57,20 @@ const ProductInfo = ({
         </button>
         <div className="_border border-2 border-black w-full h-auto p-6 bg-[#F4F6FF]">
           <div className="_image max-w-[430px] max-h-[420px] m-auto">
-            {currentImages.length > 0 ? (
-              <img
-                src={currentImages[currentImageIndex]}
-                alt="Product"
-                className="object-contain h-[415px] w-[425px]"
-              />
-            ) : (
-              <p className="text-center">No images available</p>
-            )}
+          {currentImages.length > 0 ? (
+  <img
+    src={currentImages[currentImageIndex]}
+    alt="Product"
+    className="object-contain h-[415px] w-[425px]"
+  />
+) : (
+  <p className="text-center">No images available</p>
+)}
           </div>
         </div>
         <button
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2"
-          onClick={nextImage}
+          onClick={handleNextImage}
         >
           <img
             src={rightIcon}
