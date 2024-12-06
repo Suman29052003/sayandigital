@@ -19,6 +19,8 @@ import PenPage from "./pages/perItemPages/PenPage";
 import KeyChainPage from "./pages/perItemPages/KeyChainPage";
 import TilesPage from "./pages/perItemPages/TilesPage";
 import TShirtPage from "./pages/perItemPages/TShirtPage";
+import LetterHeadPage from "./pages/perItemPages/LetterHeadPage";
+import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
 
 const App = () => {
   const location = useLocation();
@@ -93,7 +95,10 @@ const App = () => {
           <Route path="/product/keychains" element={<KeyChainPage />} />
           <Route path="/product/tiles" element={<TilesPage />} />
           <Route path="/product/tshirts" element={<TShirtPage />} />
+          <Route path="/product/letter-head" element={<LetterHeadPage />} />
+          <Route path="/product/invitation-card" element={<InvitationCardPage />} />
 
+          
           
         </Routes>
       </div>

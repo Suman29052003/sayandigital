@@ -7,8 +7,6 @@ const CoffeeMugsPage = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  const maxSubTitleLength = 30; // Set the maximum length for the subtitle
-
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {coffeeMugsList.map((card, index) => (
@@ -16,7 +14,7 @@ const CoffeeMugsPage = () => {
           key={index}
           id={card.id}
           title={card.title}
-          subTitle={card.subTitle.length > maxSubTitleLength ? `${card.subTitle.slice(0, maxSubTitleLength)}...` : card.subTitle}
+          subTitle={card.subTitle}
           price={`₹ ${card.price} /piece`}
           image={card.image_1}
         />

@@ -10,6 +10,11 @@ import Typography from '@mui/joy/Typography';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 export default function ProductCard({ id, title, subTitle, price, image, onBuy }) {
+  
+  const truncateTitle = (subTitle) => {
+    return subTitle.length > 40 ? subTitle.slice(0, 40) + '...' : title;
+  };
+
   return (
     <Card
       id={id}
@@ -19,8 +24,8 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
           sm: 300,    // Fixed width on small screens and up
         },
         height: {
-          xs:'auto',
-          sm:410
+          xs: 'auto',
+          sm: 410
         }, // Allow height to adjust based on content
         display: 'flex',
         flexDirection: 'column',
@@ -51,12 +56,12 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
           sx={{ fontWeight: 'md' }}
           level="body-xs"
         >
-          {subTitle}
+            {truncateTitle(subTitle)}
         </Typography>
 
         <Typography
           level="title-lg"
-          sx={{ mt: 3, fontWeight: 'xl',color:'orange', display:'flex', justifyContent:'space-between'}}
+          sx={{ mt: 3, fontWeight: 'xl', color: 'orange', display: 'flex', justifyContent: 'space-between' }}
           endDecorator={
             <Chip component="span" size="sm" variant="soft" color="success">
               Lowest price
@@ -68,15 +73,15 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
         {/* <Typography level="body-sm">
           (Only <b>7</b> left in stock!)
         </Typography> */}
-        <Button
-          variant="solid"
-          color="primary"
-          sx={{ mt: 2 }}
-          onClick={onBuy}
-        >
-          Buy Now
-        </Button>
       </CardContent>
+      <Button
+        variant="solid"
+        color="primary"
+        sx={{ mt: 2, mb: 1 }} // Add margin bottom for spacing
+        onClick={onBuy}
+      >
+        Buy Now
+      </Button>
     </Card>
   );
 }

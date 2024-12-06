@@ -20,7 +20,7 @@ const Stationery = () => {
       </div>
 
       {/* Grid container for stationery items */}
-      <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5  gap-3 sm:gap-4 justify-items-center place-content-center my-3 sm:my-5 ">
+      <div className="w-full flex flex-wrap items-center justify-center gap-3 sm:gap-6 my-3 sm:my-5 ">
         {stationery.map((item) => (
           <Link to={`/product/${item.route}`} key={item.id}>
             <ItemCard key={item.id} {...item} width={137} height={170} />

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const AllCategories = () => {
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 flex items-center justify-center flex-col">
       {/* Section Title with decorative lines */}
       <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4">
         <div className="h-[1px] bg-gray-300 flex-grow"></div>
@@ -14,7 +14,7 @@ const AllCategories = () => {
       </div>
 
       {/* Grid container */}
-      <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 justify-items-center my-3 sm:my-5'>
+      <div className='w-full flex flex-wrap items-center justify- gap-6 sm:gap-4 justify-items-center my-3 sm:my-5'>
         {allCategories.map((item) => (
           <Link to={`/product/${item.route}`} key={item.id}>
             <ItemCard 

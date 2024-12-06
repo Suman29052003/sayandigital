@@ -4,7 +4,16 @@ import WPButton from "../components/ProductPage/WPButton";
 import DeliveryBanner from "../components/ProductPage/DeliveryBanner";
 import { useEffect } from "react";
 
-const ProductPage = () => {
+const ProductPage = ({
+  title,
+  subTitle,
+  images = [], // Default to an empty array
+  price,
+  des_1,
+  des_2,
+  des_3,
+  des_4,
+}) => {
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -12,7 +21,16 @@ const ProductPage = () => {
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      <ProductInfo />
+      <ProductInfo 
+        title={title}
+        subTitle={subTitle}
+        images={images}
+        price={price}
+        des_1={des_1}
+        des_2={des_2}
+        des_3={des_3}
+        des_4={des_4}
+      />
       <OrderTagLine />
       <WPButton />
       <DeliveryBanner />
