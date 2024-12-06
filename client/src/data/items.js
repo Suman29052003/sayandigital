@@ -4,21 +4,20 @@ import corporateGifts from '../assets/images/corporate-gifts.png'
 import banners from '../assets/images/banners.png'
 import mugs from '../assets/images/mugs.png'
 import photoFrames from '../assets/images/photo-frames.png'
-import photoGifts from '../assets/images/photo-gifts.png'
 import standees from '../assets/images/standees.png'
 
 export const itemsData = [
-    {
-      id: 1,
-      title: "Calendar & Diaries",
-      image: calendar,
-      route: 'calendar'
-    },
+  {
+    id: 1,
+    title: "Calendar & Diaries",
+    image: calendar,
+    route: 'calendar'
+  },
   {
     id: 2,
     title: "Business Cards",
     image: businessCards,
-    route: 'businesscards'
+    route: 'business-cards'
   },
   {
     id: 3,
@@ -48,6 +47,6 @@ export const itemsData = [
     id: 7,
     title: "Standees",
     image: standees,
-    route:"standees"
+    route: "standees"
   }
 ]; 

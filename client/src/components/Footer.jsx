@@ -34,7 +34,7 @@ const Footer = (props) => {
 
         {/* Copyright text */}
         <div className="copyright text-sm sm:text-base text-center font-semibold text-[#999999] order-3 sm:order-none">
-          ©2024 FrameCraft Document Services Pvt. Ltd. All Rights Reserved.
+          ©2024 Sayan Digital Document Services Pvt. Ltd. All Rights Reserved.
         </div>
 
         {/* Social media links section */}
