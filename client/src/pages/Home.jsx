@@ -4,7 +4,6 @@ import ItemsSlider from '../components/Home/ItemsSlider';
 import Banner from '../components/Home/Banner';
 import ShopByNeeds from '../components/Home/shopByNeeds';
 import AllCategories from '../components/Home/AllCategories';
-import Stationery from '../components/Home/Stationery';
 import Blogs from '../components/Home/Blogs';
 import WFHBanner from '../components/Home/WFHBanner';
 import Info from '../components/Home/Info';
@@ -17,8 +16,7 @@ const Home = () => {
         <ItemsSlider />
         <ShopByNeeds />
         <AllCategories />
-        <Stationery />
-        <Blogs />
+      <Blogs />
         <WFHBanner />
         <Info />
       </div>

@@ -1,14 +1,13 @@
-// Component that renders either an image-only card or a full card with title and image
 const ItemCard = ({ title, image, width, height, variant = "full" }) => {
-  // Convert width to responsive classes if it's a percentage
   const widthClass = width === "100%" ? "w-full" : `w-[${width}px]`;
-  
-  // Image-only variant rendering
+  const heightStyle = { height: `${height}px` };
+  const widthStyle = { width: `${width}px` };
+
   if (variant === "imageOnly") {
     return (
       <div 
         className={`rounded-lg drop-shadow-xl overflow-hidden flex-shrink-0 ${widthClass}`}
-        style={{ height: `${height}px` }}
+        style={heightStyle}
       >
         <img 
           src={image} 
@@ -19,24 +18,18 @@ const ItemCard = ({ title, image, width, height, variant = "full" }) => {
     )
   }
 
-  // Full card variant with title and image
   return (
     <div 
-      className=" rounded-lg drop-shadow-xl overflow-hidden flex-shrink-0 flex flex-col"
-      style={{ width: `${width}px`, height: `${height}px` }}
+      className="rounded-lg drop-shadow-xl overflow-hidden flex-shrink-0 flex flex-col"
+      style={{ ...widthStyle, ...heightStyle }}
     >
-      {/* Card Header - Title Section */}
       <div className="p-3 border-b rounded-t-lg bg-[#FBFBFB]">
         <h3 className="text-gray-600 font-semibold text-md truncate text-center">
           {title}
         </h3>
       </div>
-      
-      {/* Card Body - Image Container */}
       <div className="flex-1">
-        {/* Image wrapper with overflow control */}
         <div className="w-full h-full overflow-hidden">
-          {/* Responsive image with hover effect */}
           <img 
             src={image} 
             alt={title}
@@ -48,4 +41,4 @@ const ItemCard = ({ title, image, width, height, variant = "full" }) => {
   )
 }
 
-export default ItemCard; 
+export default ItemCard;

@@ -1,6 +1,6 @@
 import ProductInfo from "../components/ProductPage/ProductInfo";
 import OrderTagLine from "../components/ProductPage/OrderTagLine";
-import WPButton from "../components/ProductPage/WPButton";
+import WPButton from "../components/ProductPage/OrderButton";
 import DeliveryBanner from "../components/ProductPage/DeliveryBanner";
 import { useEffect } from "react";
 

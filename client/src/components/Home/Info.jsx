@@ -63,11 +63,11 @@ const Info = () => {
           project and let's bring your vision to life.
         </h2>
         <p className="text-sm sm:text-base text-[#999999] text-pretty font-semibold">
-          Contact us at <a href="mailto:info@sayandigital.com">sayana177123@gmail.com</a> or call us at +91 85975 07902 to get started.
+          Contact us at <a href="mailto:info@sayandigital.com">info@sayandigital.com</a> or call us at +91 85975 07902 to get started.
         </p>
-        {/* <button className="bg-[#4C4C4C] text-white py-2 px-4 rounded-md hover:bg-[#333333]">
+        <button className="bg-[#4C4C4C] text-white py-2 px-4 rounded-md hover:bg-[#333333]">
           Get Started
-        </button> */}
+        </button>
       </div>
     </div>
   );

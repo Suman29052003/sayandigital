@@ -14,7 +14,7 @@ const AllCategories = () => {
       </div>
 
       {/* Grid container */}
-      <div className='w-full flex flex-wrap items-center justify- gap-6 sm:gap-4 justify-items-center my-3 sm:my-5'>
+      <div className='w-full flex flex-wrap items-center justify-center gap-3 sm:gap-5 my-3 sm:my-5'>
         {allCategories.map((item) => (
           <Link to={`/product/${item.route}`} key={item.id}>
             <ItemCard 

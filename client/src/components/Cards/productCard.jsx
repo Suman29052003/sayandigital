@@ -12,7 +12,7 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 export default function ProductCard({ id, title, subTitle, price, image, onBuy }) {
   
   const truncateTitle = (subTitle) => {
-    return subTitle.length > 40 ? subTitle.slice(0, 40) + '...' : title;
+    return subTitle.length > 40 ? subTitle.slice(0, 40) + '...' : subTitle;
   };
 
   return (
@@ -20,7 +20,7 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
       id={id}
       sx={{
         width: {
-          xs: '80%', // Full width on extra small screens
+          xs: '100%', // Full width on extra small screens
           sm: 300,    // Fixed width on small screens and up
         },
         height: {
@@ -40,7 +40,7 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
           <img
             src={image}
             loading="lazy"
-            alt=""
+            alt={title}
             style={{ objectFit: 'contain', width: '100%', height: '100%', padding: '5px' }}
           />
         </AspectRatio>
@@ -68,11 +68,9 @@ export default function ProductCard({ id, title, subTitle, price, image, onBuy }
             </Chip>
           }
         >
-          {price}
+          ${price}
         </Typography>
-        {/* <Typography level="body-sm">
-          (Only <b>7</b> left in stock!)
-        </Typography> */}
+
       </CardContent>
       <Button
         variant="solid"
