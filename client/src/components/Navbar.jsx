@@ -1,6 +1,6 @@
 // Import necessary dependencies and assets
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import storeLogo from "../assets/logos/store_logo.png";
 import searchIcon from "../assets/icons/search.png";
 import profileIcon from "../assets/icons/profile.png";
@@ -10,34 +10,37 @@ import hamIcon from "../assets/icons/hamburger.png";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [firstName, setFirstName] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [userId, setUserId] = useState();
   const navigate = useNavigate();
 
   // Check authentication status whenever component mounts or token changes
   useEffect(() => {
     const checkAuth = () => {
-      const token = localStorage.getItem('token');
-      const storedFirstName = localStorage.getItem('firstName');
+      const token = localStorage.getItem("token");
+      const storedFirstName = localStorage.getItem("firstName");
+      const userid = localStorage.getItem("userId");
       setIsLoggedIn(!!token);
-      setFirstName(storedFirstName || '');
+      setFirstName(storedFirstName || "");
+      setUserId(userid)
     };
 
     checkAuth();
     // Add event listener for storage changes
-    window.addEventListener('storage', checkAuth);
-    
+    window.addEventListener("storage", checkAuth);
+
     return () => {
-      window.removeEventListener('storage', checkAuth);
+      window.removeEventListener("storage", checkAuth);
     };
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('firstName');
+    localStorage.removeItem("token");
+    localStorage.removeItem("firstName");
     setIsLoggedIn(false);
-    setFirstName('');
+    setFirstName("");
     setIsMenuOpen(false);
-    navigate('/');
+    navigate("/");
     window.location.reload();
   };
 
@@ -48,7 +51,7 @@ const Navbar = () => {
           <span className="text-gray-700 font-semibold text-lg">
             Hello, {firstName}
           </span>
-          <button 
+          <button
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
           >
@@ -56,7 +59,7 @@ const Navbar = () => {
           </button>
         </>
       ) : (
-        <Link 
+        <Link
           to="/login"
           className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
         >
@@ -67,13 +70,13 @@ const Navbar = () => {
   );
 
   return (
-    <nav className='w-full bg-[#C6E7FF] h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-20'>
+    <nav className="w-full bg-[#C6E7FF] h-[60px] sm:h-[80px] flex items-center justify-between p-3 sm:p-4 shadow-md relative z-20">
       {/* Logo */}
       <Link to="/" className="w-[150px] sm:w-[200px]">
-        <img 
-          src={storeLogo} 
-          alt="store logo" 
-          className="w-full object-contain cursor-pointer" 
+        <img
+          src={storeLogo}
+          alt="store logo"
+          className="w-full object-contain cursor-pointer"
         />
       </Link>
 
@@ -81,10 +84,10 @@ const Navbar = () => {
       <div className="hidden md:flex items-center gap-8">
         {/* Search Bar */}
         <div className="relative">
-          <input 
-            type="text" 
-            placeholder='Search for products...' 
-            className='w-[300px] lg:w-[400px] h-[40px] rounded-full pl-4 pr-12 outline-none border-none' 
+          <input
+            type="text"
+            placeholder="Search for products..."
+            className="w-[300px] lg:w-[400px] h-[40px] rounded-full pl-4 pr-12 outline-none border-none"
           />
           <button className="absolute right-2 top-1/2 -translate-y-1/2 w-[35px] h-[35px] bg-[#87e5ff] rounded-full flex items-center justify-center">
             <img src={searchIcon} alt="search" className="w-5 h-5" />
@@ -94,7 +97,7 @@ const Navbar = () => {
         {/* Auth & Cart */}
         <div className="flex items-center gap-6">
           <AuthButtons />
-          <Link to="/profile" className="flex items-center gap-2">
+          <Link to={`/profile/${userId}`} className="flex items-center gap-2">
             <img src={profileIcon} alt="cart" className="w-6 h-6" />
             <span className="font-semibold text-lg">Account</span>
           </Link>
@@ -102,10 +105,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Button */}
-      <button 
-        className="md:hidden"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
+      <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
         <img src={hamIcon} alt="menu" className="w-6 h-6" />
       </button>
 
@@ -115,10 +115,10 @@ const Navbar = () => {
           {/* Mobile Search */}
           <div className="p-4">
             <div className="relative">
-              <input 
-                type="text" 
-                placeholder='Search for products...' 
-                className='w-full h-[40px] rounded-full pl-4 pr-12 outline-none border border-gray-200' 
+              <input
+                type="text"
+                placeholder="Search for products..."
+                className="w-full h-[40px] rounded-full pl-4 pr-12 outline-none border border-gray-200"
               />
               <button className="absolute right-2 top-1/2 -translate-y-1/2 w-[35px] h-[35px] bg-[#87e5ff] rounded-full flex items-center justify-center">
                 <img src={searchIcon} alt="search" className="w-5 h-5" />
@@ -131,8 +131,8 @@ const Navbar = () => {
             <div className="p-4 border-b border-gray-100">
               <AuthButtons />
             </div>
-            <Link 
-              to="/profile" 
+            <Link
+              to={`/profile/${userId}`}
               className="p-4 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >

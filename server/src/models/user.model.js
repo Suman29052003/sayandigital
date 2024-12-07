@@ -51,6 +51,25 @@ const userSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user',
     required: true
+  },
+  city: {
+    type: String,
+    trim: true
+  },
+  pincode: {
+    type: String,
+    trim: true,
+    validate: {
+      validator: function(v) {
+        return /^\d{6}$/.test(v);
+      },
+      message: props => `${props.value} is not a valid pincode!`
+    }
+  },
+  country: {
+    type: String,
+    trim: true,
+    required: true
   }
 }, {
   timestamps: true

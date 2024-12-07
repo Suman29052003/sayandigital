@@ -50,12 +50,15 @@ const Login = () => {
       console.log("Login successful, storing token and user details");
       localStorage.setItem("token", data.token); // Store token
       localStorage.setItem("firstName", data.user.firstName); // Store user's first name
+      localStorage.setItem("userId", data.user._id);
 
       toast.success("Login successful!"); // Show success toast
       setTimeout(() => {
         navigate("/"); // Redirect to dashboard after 2 seconds
         window.location.reload();
-      }, 1000); // Navigate to home after 1 second
+      }, 1000);
+
+      // Navigate to home after 1 second
     } catch (err) {
       console.error("Login Error:", err.message); // Log error for debugging
       setError(err.message); // Set error message

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react"; // Importing React and useState hook
 import { useNavigate, Link } from "react-router-dom"; // Importing navigation and Link components
 import baseURL from "../../baseURL"; // Importing base URL for API calls
@@ -15,6 +14,9 @@ const Signup = () => {
     firstName: "",
     lastName: "",
     phoneNumber: "",
+    city: "",
+    pincode: "",
+    country: "",
   });
 
   // State to hold error messages
@@ -55,6 +57,9 @@ const Signup = () => {
           firstName: formData.firstName,
           lastName: formData.lastName,
           phoneNumber: formData.phoneNumber,
+          city: formData.city,
+          pincode: formData.pincode,
+          country: formData.country,
         }),
       });
 
@@ -68,6 +73,7 @@ const Signup = () => {
       // Store token and firstName in local storage
       localStorage.setItem("token", data.token);
       localStorage.setItem("firstName", formData.firstName);
+      // localStorage.setItem("userId",data)
 
       toast.success("Sign Up successful!"); // Show success toast
       setTimeout(() => navigate("/"), 1000); // Navigate to home after 1 second
@@ -239,6 +245,60 @@ const Signup = () => {
                 required
                 value={formData.confirmPassword}
                 onChange={handleChange} // Handle input change
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="city"
+                className="block text-sm font-medium text-gray-700"
+              >
+                City
+              </label>
+              <input
+                id="city"
+                name="city"
+                type="text"
+                required
+                value={formData.city}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="pincode"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Pincode
+              </label>
+              <input
+                id="pincode"
+                name="pincode"
+                type="text"
+                required
+                value={formData.pincode}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="country"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Country
+              </label>
+              <input
+                id="country"
+                name="country"
+                type="text"
+                required
+                value={formData.country}
+                onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>

@@ -21,7 +21,7 @@ import TilesPage from "./pages/perItemPages/TilesPage";
 import TShirtPage from "./pages/perItemPages/TShirtPage";
 import LetterHeadPage from "./pages/perItemPages/LetterHeadPage";
 import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
-
+import Profile from "./pages/Profile";
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
@@ -69,37 +69,49 @@ const App = () => {
           {/* Authentication Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          {/*Profile Page for User */}
+          <Route path="/profile/:userId" element={<Profile />} />
           {/* Product Page */}
           <Route path="/product" element={<ProductPage />} />
-          {/*product page for banner*/}
+          {/* Product page for specific route */}
           <Route path="/product/:route" element={<ProductPage />} />
-          {/*item page for business card */}
-          <Route path="/product/business-cards" element={<BusinessCardPage />} />
-          {/*item page for calender */}
+          {/* Item page for business card */}
+          <Route
+            path="/product/business-cards"
+            element={<BusinessCardPage />}
+          />
+          {/* Item page for calendar */}
           <Route path="/product/Calendar" element={<CalenderPage />} />
-          {/*item page for corporate gifts */}
+          {/* Item page for corporate gifts */}
           <Route
             path="/product/corporate-gifts"
             element={<CorporateGiftsPage />}
           />
-          {/*item page for custom mugs */}
+          {/* Item page for custom mugs */}
           <Route path="/product/custom-mugs" element={<CoffeeMugsPage />} />
-          {/*item page for photo frame */}
+          {/* Item page for photo frame */}
           <Route path="/product/photo-frames" element={<PhotoFramePage />} />
-          {/*item page for standees */}
+          {/* Item page for standees */}
           <Route path="/product/standees" element={<StandeePage />} />
-          {/*item page for sticker and vinyls */}
+          {/* Item page for stickers and vinyls */}
           <Route path="/product/stickers" element={<StickerPage />} />
-          <Route path="/product/trophy" element={<TrophyPage/>}/>
+          {/* Item page for trophies */}
+          <Route path="/product/trophy" element={<TrophyPage />} />
+          {/* Item page for pens */}
           <Route path="/product/pen" element={<PenPage />} />
+          {/* Item page for keychains */}
           <Route path="/product/keychains" element={<KeyChainPage />} />
+          {/* Item page for tiles */}
           <Route path="/product/tiles" element={<TilesPage />} />
+          {/* Item page for t-shirts */}
           <Route path="/product/tshirts" element={<TShirtPage />} />
+          {/* Item page for letter heads */}
           <Route path="/product/letter-head" element={<LetterHeadPage />} />
-          <Route path="/product/invitation-card" element={<InvitationCardPage />} />
-
-          
-          
+          {/* Item page for invitation cards */}
+          <Route
+            path="/product/invitation-card"
+            element={<InvitationCardPage />}
+          />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}
