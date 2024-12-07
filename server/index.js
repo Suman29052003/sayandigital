@@ -2,10 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 require('dotenv').config();
-const connectDB = require('./config/database');
+const connectDB = require('./src/config/database');
 const app = express();
-const PORT = process.env.PORT;
-const userRoutes = require('./routes/user.route');
+const PORT = process.env.PORT || 8000;
+const userRoutes = require('./src/routes/user.route');
 // Middleware
 app.use(cors({
   // origin: [process.env.FRONTEND_URL],
