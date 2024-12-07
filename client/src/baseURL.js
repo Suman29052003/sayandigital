@@ -1,3 +1,3 @@
-const baseURL = "http://localhost:8000"
+const baseURL = "https://sayandigital-backend.onrender.com"
 
 export default baseURL;
