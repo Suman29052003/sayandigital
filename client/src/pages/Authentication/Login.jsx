@@ -1,4 +1,3 @@
-
 import React, { useState } from "react"; // Importing React and useState hook
 import { useNavigate, Link } from "react-router-dom"; // Importing navigation and Link components
 import baseURL from "../../baseURL"; // Importing base URL for API calls
@@ -11,7 +10,7 @@ const Login = () => {
     email: "", // Email input
     password: "", // Password input
   });
-  
+
   // State to hold error messages
   const [error, setError] = useState("");
   const navigate = useNavigate(); // Hook for navigation
@@ -53,7 +52,10 @@ const Login = () => {
       localStorage.setItem("firstName", data.user.firstName); // Store user's first name
 
       toast.success("Login successful!"); // Show success toast
-      setTimeout(() => navigate("/"), 1000); // Navigate to home after 1 second
+      setTimeout(() => {
+        navigate("/"); // Redirect to dashboard after 2 seconds
+        window.location.reload();
+      }, 1000); // Navigate to home after 1 second
     } catch (err) {
       console.error("Login Error:", err.message); // Log error for debugging
       setError(err.message); // Set error message
@@ -63,7 +65,8 @@ const Login = () => {
 
   return (
     <>
-      <ToastContainer position="top-right" /> {/* Toast container for notifications */}
+      <ToastContainer position="top-right" />{" "}
+      {/* Toast container for notifications */}
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
           <div className="flex items-center">

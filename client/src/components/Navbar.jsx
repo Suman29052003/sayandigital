@@ -94,9 +94,9 @@ const Navbar = () => {
         {/* Auth & Cart */}
         <div className="flex items-center gap-6">
           <AuthButtons />
-          <Link to="/cart" className="flex items-center gap-2">
-            <img src={cartIcon} alt="cart" className="w-6 h-6" />
-            <span>Cart</span>
+          <Link to="/profile" className="flex items-center gap-2">
+            <img src={profileIcon} alt="cart" className="w-6 h-6" />
+            <span className="font-semibold text-lg">Account</span>
           </Link>
         </div>
       </div>
@@ -132,12 +132,12 @@ const Navbar = () => {
               <AuthButtons />
             </div>
             <Link 
-              to="/cart" 
+              to="/profile" 
               className="p-4 flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              <img src={cartIcon} alt="cart" className="w-6 h-6" />
-              <span>Cart</span>
+              <img src={profileIcon} alt="cart" className="w-6 h-6" />
+              <span className="font-semibold text-lg">Account</span>
             </Link>
           </div>
         </div>
