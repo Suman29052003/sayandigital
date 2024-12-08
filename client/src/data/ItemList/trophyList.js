@@ -8,25 +8,31 @@ const trophyList = [
         id: 1,
         title: "Collage And Corporate Events Trophy",
         subTitle: "Elegant trophy for college and office events and competitions.",
-        image: collageEventTrophy
+        image: collageEventTrophy,
+        price:200
     },
     {
         id: 2,
         title: "Customize Memento",
         subTitle: "Personalized memento for special occasions.",
-        image: customMemento
+        image: customMemento,
+        price:200
     },
     {
         id: 3,
         title: "Plastic Base Trophy",
         subTitle: "Durable and affordable trophy with a plastic base.",
-        image: plasticBaseTrophy
+        image: plasticBaseTrophy,
+        price:200
+
+        
     },
     {
         id: 4,
         title: "Winner Cup",
         subTitle: "Classic winner’s cup for champions.",
-        image: winnerCup
+        image: winnerCup,
+        price:200
     },
 ];
 

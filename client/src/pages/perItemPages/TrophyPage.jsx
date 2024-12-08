@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import trophyList from "../../data/ItemList/trophyList";
-import PreviewCard from "../../components/Cards/PreviewCard";
+import ProductCard from "../../components/Cards/ProductCard";
 
 const TrophyPage = () => {
   useEffect(() => {
@@ -9,12 +9,12 @@ const TrophyPage = () => {
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {trophyList.map((card, index) => (
-        <PreviewCard
+        <ProductCard
           key={index}
           id={card.id}
           title={card.title}
           subTitle={card.subTitle}
-          //   price={card.price}
+            price={`From ${card.price}`}
           image={card.image}
         />
       ))}

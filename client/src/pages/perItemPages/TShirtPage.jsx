@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import tshirtList from '../../data/ItemList/tshirtList';
-import ProductCard from '../../components/Cards/productCard';
+import ProductCard from '../../components/Cards/ProductCard';
 
 
 const TShirtPage = () => {
@@ -15,7 +15,7 @@ const TShirtPage = () => {
               id={card.id}
               title={card.title}
               subTitle={card.subTitle}
-              price={`₹ ${card.price} /piece`}
+              price={`From ${card.price} /piece`}
               image={card.image}
             />
           ))}

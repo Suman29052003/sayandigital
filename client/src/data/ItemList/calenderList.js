@@ -16,24 +16,31 @@ const calenderList = [
         title: 'Personalized Wall Calendar',
         subTitle: 'Custom wall calendar. Add your favorite photos and important dates for a year full of memories!',
         image_1: wallCalender_1,
+        price:200
     },
     {
         id: 2,
         title: 'Personalized Desk Calendar',
         subTitle: 'Custom desk calendar. Keep your favorite memories at your workspace throughout the year!',
         image_1: deskCalender_1,
+        price:200
+
     },
     {
         id: 3,
         title: 'Personalized LED Calendar',
         subTitle: 'Custom LED calendar. Illuminate your favorite memories with a stunning glow!',
-        image_1: LEDCalender
+        image_1: LEDCalender,
+        price:200
+
     },
     {
         id: 4,
         title: 'Personalized Diary',
         subTitle: 'Custom diary. Keep your thoughts, plans, and memories organized with a personal touch!',
         image_1: diary_1,
+        price:200
+
     }
 
 

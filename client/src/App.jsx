@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Authentication/Login";
@@ -41,9 +41,7 @@ const App = () => {
         case "/signup":
           setFooterText("Login");
           break;
-        case "/product":
-          setFooterText("Go Back to Home");
-          break;
+        case "/order-product":
         case "/product/:route":
           setFooterText("Go Back to Home");
           break;
@@ -72,7 +70,7 @@ const App = () => {
           {/*Profile Page for User */}
           <Route path="/profile/:userId" element={<Profile />} />
           {/* Product Page */}
-          <Route path="/product" element={<ProductPage />} />
+          <Route path="/order-product" element={<ProductPage />} />
           {/* Product page for specific route */}
           <Route path="/product/:route" element={<ProductPage />} />
           {/* Item page for business card */}

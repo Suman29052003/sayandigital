@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import standeeList from "../../data/ItemList/standeeList";
-import ProductCard from "../../components/Cards/productCard";
+import ProductCard from "../../components/Cards/ProductCard";
 
 
 
@@ -16,7 +16,7 @@ const StandeePage = () => {
           id={card.id}
           title={card.title}
           subTitle={card.subTitle}
-          price={`₹ ${card.price}`}
+          price={`From ${card.price} /piece`}
           image={card.image}
         />
       ))}

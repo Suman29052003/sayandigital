@@ -14,12 +14,9 @@ import CustomFlex from "./CutsomFlex";
 const ProductInfo = ({
   title,
   subTitle,
-  images=[], // Default to an empty array
+  images = [], // Default to an empty array
   price,
-  des_1,
-  des_2,
-  des_3,
-  des_4,
+  onQuantityChange,
 }) => {
   const { route } = useParams();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -57,15 +54,15 @@ const ProductInfo = ({
         </button>
         <div className="_border border-2 border-black w-full h-auto p-6 bg-[#F4F6FF]">
           <div className="_image max-w-[430px] max-h-[420px] m-auto">
-          {currentImages.length > 0 ? (
-  <img
-    src={currentImages[currentImageIndex]}
-    alt="Product"
-    className="object-contain h-[415px] w-[425px]"
-  />
-) : (
-  <p className="text-center">No images available</p>
-)}
+            {currentImages.length > 0 ? (
+              <img
+                src={currentImages[currentImageIndex]}
+                alt="Product"
+                className="object-contain h-[415px] w-[425px]"
+              />
+            ) : (
+              <p className="text-center">No images available</p>
+            )}
           </div>
         </div>
         <button
@@ -88,10 +85,7 @@ const ProductInfo = ({
             title={title}
             subTitle={subTitle}
             price={price}
-            des_1={des_1}
-            des_2={des_2}
-            des_3={des_3}
-            des_4={des_4}
+            onQuantityChange={onQuantityChange}
           />
         )}
       </div>

@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { useProductContext } from '../../context/ProductContext.jsx';
 
 import minusIcon from "../../assets/icons/minus.png";
 import plusIcon from "../../assets/icons/plus.png";
 
-const CustomProduct = ({
-  title,
-  subTitle,
-  price,
-  des_1,
-  des_2,
-  des_3,
-  des_4,
-}) => {
+const CustomProduct = () => {
+  const { productDetails, setProductDetails } = useProductContext();
+  const { title, price } = productDetails;
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    setProductDetails({ ...productDetails, title, price });
+  }, []);
+
+  const handleQuantityChange = (e) => {
+    const value = Math.max(1, e.target.value);
+    setQuantity(value);
+  };
 
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => {
@@ -24,13 +28,8 @@ const CustomProduct = ({
       <div className="_title">
         <h1 className="text-2xl md:text-3xl font-bold">{title}</h1>
       </div>
-      <div className="_shortTitle text-lg font-medium">{subTitle}</div>
-      <div className="_description text-md font-medium gap-3 flex flex-col text-left">
-        <li className="">{des_1}</li>
-        <li className="">{des_2}</li>
-        <li className="">{des_3}</li>
-        <li className="">{des_4}</li>
-      </div>
+      <div className="_shortTitle text-lg font-medium">{productDetails.subTitle}</div>
+
 
       <div className="_quantity w-full flex flex-col my-7 gap-3">
   {/* Quantity Label and Input */}

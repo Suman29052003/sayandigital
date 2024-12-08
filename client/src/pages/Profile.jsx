@@ -5,8 +5,8 @@ import baseURL from "../baseURL";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "@mui/material/Button";
-// import { Backdrop } from '@mui/material';
-import Backdrop from "../components/Loader/Backdrop";
+import Loader from "../components/Loader/Backdrop";
+
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -52,7 +52,6 @@ const Profile = () => {
               : "Error fetching user profile(client)"
           );
         }
-        // console.error("Error fetching user profile:", err);
       }
     };
 
@@ -95,18 +94,18 @@ const Profile = () => {
   if (!user) {
     return (
       <div>
-        <Backdrop />
+        <Loader />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
+    <div className="max-h-screen bg-gray-50 py-10 px-4">
       <ToastContainer position="top-right" />
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
         {/* Profile Header */}
         <div className="flex items-center space-x-4 p-6 border-b">
-          <div className="w-full flex items-center justify-between">
+          <div className="w-full flex flex-col md:flex-row items-center justify-between">
             <h1 className="text-3xl font-bold text-gray-800">
               {formData.username}
             </h1>
@@ -115,6 +114,7 @@ const Profile = () => {
                 variant="contained"
                 color="error"
                 onClick={() => setIsEditing(true)}
+                style={{width:'fit-content'}}
               >
                 Edit Profile
               </Button>

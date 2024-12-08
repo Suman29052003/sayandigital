@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import ProductCard from '../../components/Cards/productCard';
+import ProductCard from '../../components/Cards/ProductCard';
 import tilesList from '../../data/ItemList/tilesList';
 
 const TilesPage = () => {
@@ -14,7 +14,7 @@ const TilesPage = () => {
               id={card.id}
               title={card.title}
               subTitle={card.subTitle}
-              price={`₹ ${card.price} /piece`}
+              price={`From ${card.price} /piece`}
               image={card.image}
             />
           ))}

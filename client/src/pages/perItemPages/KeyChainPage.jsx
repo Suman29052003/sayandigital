@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import keyChainsList from '../../data/ItemList/keyRingsList';
-import ProductCard from '../../components/Cards/productCard';
+import ProductCard from '../../components/Cards/ProductCard';
 
 const KeyChainPage = () => {
     useEffect(() => {
@@ -14,7 +14,7 @@ const KeyChainPage = () => {
               id={card.id}
               title={card.title}
               subTitle={card.subTitle}
-              price={`₹ ${card.price} /piece`}
+              price={`From ${card.price} /piece`}
               image={card.image}
             />
           ))}

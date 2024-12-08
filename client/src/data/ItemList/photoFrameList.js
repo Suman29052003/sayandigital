@@ -13,43 +13,57 @@ const photoFrameList = [
         id: 1,
         title: "4x6 Photo Frame",
         subTitle: "Perfect for small-sized photos.",
-        image:Frame_4x6
+        image:Frame_4x6,
+        price:200
+
       },
       {
         id: 2,
         title: "5x7 Photo Frame",
         subTitle: "Ideal for medium-sized photos.",
-        image: Frame_5x7
+        image: Frame_5x7,
+        price:200
+
       },
       {
         id: 3,
         title: "8x12 Photo Frame",
         subTitle: "Great for larger photos.",
-        image:Frame_8x12
+        image:Frame_8x12,
+        price:200
+
       },
       {
         id: 4,
         title: "11x14 Photo Frame",
         subTitle: "Suitable for wall displays.",
-        image: Frame_11x14
+        image: Frame_11x14,
+        price:200
+
       },
       {
         id: 5,
         title: "16x20 Photo Frame",
         subTitle: "Perfect for portraits and artwork.", 
-        image: Frame_16x20
+        image: Frame_16x20,
+        price:200
+
       },
       {
         id: 6,
         title: "20x24 Photo Frame",
         subTitle: "Large frame for prominent displays.",
-        image: Frame_20x24
+        image: Frame_20x24,
+        price:200
+
       },
       {
         id: 7,
         title: "24x36 Photo Frame",
         subTitle: "Extra-large frame for posters and collages.",
-        image: Frame_24x36
+        image: Frame_24x36,
+        price:200
+
       },
 ]
 

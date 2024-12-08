@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import photoFrameList from "../../data/ItemList/photoFrameList";
-import FrameCard from "../../components/Cards/PreviewCard";
+import ProductCard from "../../components/Cards/ProductCard";
 
 const PhotoFramePage = () => {
   useEffect(() => {
@@ -9,7 +9,15 @@ const PhotoFramePage = () => {
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
       {photoFrameList.map((card) => (
-        <FrameCard key={card.id} id={card.id} title={card.title} subTitle={card.subTitle} image={card.image} />
+        <ProductCard
+          key={card.id}
+          id={card.id}
+          title={card.title}
+          subTitle={card.subTitle}
+          price={`From ${card.price} /piece`}
+
+          image={card.image}
+        />
       ))}
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import  corporateGiftsList  from '../../data/ItemList/corporateGiftsList'
-import PreviewCard from '../../components/Cards/PreviewCard'
+import React, { useEffect } from "react";
+import corporateGiftsList from "../../data/ItemList/corporateGiftsList";
+import ProductCard from "../../components/Cards/ProductCard";
 
 const CorporateGiftsPage = () => {
   useEffect(() => {
@@ -8,11 +8,18 @@ const CorporateGiftsPage = () => {
   }, []);
   return (
     <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
-    {corporateGiftsList.map((card, index) => (
-      <PreviewCard key={index} id={card.id} title={card.title} subTitle={card.subTitle} price={card.price} image={card.image} />
-    ))}
-  </div>
-  )
-}
+      {corporateGiftsList.map((card, index) => (
+        <ProductCard
+          key={index}
+          id={card.id}
+          title={card.title}
+          subTitle={card.subTitle}
+          price={`From ${card.price}`}
+          image={card.image}
+        />
+      ))}
+    </div>
+  );
+};
 
-export default CorporateGiftsPage
+export default CorporateGiftsPage;

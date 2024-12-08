@@ -1,25 +1,20 @@
 import React from "react";
 import letterHeadList from "../../data/ItemList/letterHeadList";
-import ProductPage from "../ProductPage";
+import ProductCard from "../../components/Cards/ProductCard";
 
 const LetterHeadPage = () => {
-  const images = [
-    letterHeadList[0].image_1,
-    letterHeadList[0].image_2,
-    letterHeadList[0].image_3,
-  ];
   return (
-    <div>
-      <ProductPage
-        title={letterHeadList[0].title}
-        subTitle={letterHeadList[0].subTitle}
-        price={letterHeadList[0].price}
-        images={images} // Pass the images array as a prop
-        des_1={letterHeadList[0].des_1}
-        des_2={letterHeadList[0].des_2}
-        des_3={letterHeadList[0].des_3}
-        des_4={letterHeadList[0].des_4}
-      />
+    <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
+      {letterHeadList.map((card, index) => (
+        <ProductCard
+          key={index}
+          id={card.id}
+          title={card.title}
+          subTitle={card.subTitle}
+          price={`From ${card.price}`}
+          image={card.image}
+        />
+      ))}
     </div>
   );
 };
