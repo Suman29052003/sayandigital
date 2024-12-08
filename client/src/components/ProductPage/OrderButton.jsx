@@ -5,7 +5,7 @@ const WPButton = ({ images, title, price, quantity }) => {
   const phoneNumber = '7797607126'; // Replace with your WhatsApp number in international format
 
   const handleClick = () => {
-    const message = `${images}Hello! 👋\n\nI would like to place an order for the following product:\n\n*Product Title:* ${title}\n*Price:* ${price}\n*Quantity:* ${quantity}\n\nCould you please provide me with the next steps? Thank you! 😊`;
+    const message = `Hello! 👋\n\nI would like to place an order for the following product:\n\n*Product Title:* ${title}\n*Price:* ${price}\n*Quantity:* ${quantity}\n\nCould you please provide me with the next steps? Thank you! 😊`;
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };

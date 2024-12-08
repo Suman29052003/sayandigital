@@ -13,22 +13,23 @@ const ProductPage = () => {
   }, []);
 
   const location = useLocation();
-  const { title , subTitle, images, price } = location.state || {};
+  const { title, subTitle, images, price, des_1, des_2, des_3, des_4 } =
+    location.state || {};
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
+      <ProductInfo
+        title={title}
+        subTitle={subTitle}
+        images={images}
+        price={price}
+        onQuantityChange={setQuantity} // Pass the setter function to CustomProduct
+      />
+      <OrderTagLine />
       <ProductProvider>
-        <ProductInfo
-          title={title}
-          subTitle={subTitle}
-          images={images}
-          price={price}
-          onQuantityChange={setQuantity} // Pass the setter function to CustomProduct
-        />
-        <OrderTagLine />
         <WPButton title={title} price={price} quantity={quantity} />
-        <DeliveryBanner />
       </ProductProvider>
+      <DeliveryBanner />
     </div>
   );
 };

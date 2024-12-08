@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useProductContext } from '../../context/ProductContext.jsx';
+import React, { useState } from "react";
 
 import minusIcon from "../../assets/icons/minus.png";
 import plusIcon from "../../assets/icons/plus.png";
 
-const CustomProduct = () => {
-  const { productDetails, setProductDetails } = useProductContext();
-  const { title, price } = productDetails;
+const CustomProduct = ({
+  title,
+  subTitle,
+  price,
+}) => {
   const [quantity, setQuantity] = useState(1);
-
-  useEffect(() => {
-    setProductDetails({ ...productDetails, title, price });
-  }, []);
-
-  const handleQuantityChange = (e) => {
-    const value = Math.max(1, e.target.value);
-    setQuantity(value);
-  };
 
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => {
@@ -28,7 +20,7 @@ const CustomProduct = () => {
       <div className="_title">
         <h1 className="text-2xl md:text-3xl font-bold">{title}</h1>
       </div>
-      <div className="_shortTitle text-lg font-medium">{productDetails.subTitle}</div>
+      <div className="_shortTitle text-lg font-medium">{subTitle}</div>
 
 
       <div className="_quantity w-full flex flex-col my-7 gap-3">
