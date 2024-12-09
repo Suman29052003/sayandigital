@@ -71,7 +71,7 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
           href="#product-card"
           color="neutral"
           textColor="text.primary"
-          overlay
+          overlay="true"
           endDecorator={<ArrowOutwardIcon />}
           sx={{ fontWeight: "md" }}
           level="body-xs"
