@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import trophyList from "../../data/ItemList/trophyList";
-import ProductCard from "../../components/Cards/ProductCard";
+
+import ProductCard from "../../components/Cards/ProductCard"; // Ensure this path is correct
 
 const TrophyPage = () => {
   useEffect(() => {
@@ -14,7 +15,7 @@ const TrophyPage = () => {
           id={card.id}
           title={card.title}
           subTitle={card.subTitle}
-            price={`From ${card.price}`}
+          price={`From ${card.price}`}
           image={card.image}
         />
       ))}
