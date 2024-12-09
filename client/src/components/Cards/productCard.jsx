@@ -16,10 +16,7 @@ export default function ProductCard({
   subTitle,
   price,
   image,
-  des_1,
-  des_2,
-  des_3,
-  des_4,
+
 }) {
   const truncateTitle = (subTitle) => {
     return subTitle.length > 40 ? subTitle.slice(0, 40) + "..." : subTitle;
