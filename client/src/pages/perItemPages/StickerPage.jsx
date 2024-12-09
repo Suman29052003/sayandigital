@@ -3,6 +3,7 @@ import customStickersAndVinyls from "../../data/ItemList/stickersAndVinylsList "
 import ProductCard from "../../components/Cards/ProductCard";
 
 
+
 const StickerPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
