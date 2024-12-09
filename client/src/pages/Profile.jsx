@@ -122,7 +122,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Personal Information Section */}
         <div className="p-6">
           <h2 className="text-lg font-semibold text-gray-800">
             Personal Information
