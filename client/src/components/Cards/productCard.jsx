@@ -10,14 +10,7 @@ import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-export default function ProductCard({
-  id,
-  title,
-  subTitle,
-  price,
-  image,
-
-}) {
+const ProductCard = ({ id, title, subTitle, price, image }) => {
   const truncateTitle = (subTitle) => {
     return subTitle.length > 40 ? subTitle.slice(0, 40) + "..." : subTitle;
   };
@@ -114,4 +107,6 @@ export default function ProductCard({
       </Button>
     </Card>
   );
-}
+};
+
+export default ProductCard;
