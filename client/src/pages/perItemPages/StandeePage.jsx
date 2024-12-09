@@ -4,6 +4,7 @@ import ProductCard from "../../components/Cards/ProductCard";
 
 
 
+
 const StandeePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
