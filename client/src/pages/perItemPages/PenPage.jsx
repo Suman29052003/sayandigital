@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import penList from '../../data/ItemList/penList';
-import PreviewCard from '../../components/Cards/PreviewCard.jsx';
+import PreviewCard from '@/components/Cards/PreviewCard.jsx';
 
 const PenPage = () => {
     useEffect(() => {

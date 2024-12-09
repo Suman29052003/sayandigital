@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import customStickersAndVinyls from "../../data/ItemList/stickersAndVinylsList ";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const StickerPage = () => {
   useEffect(() => {

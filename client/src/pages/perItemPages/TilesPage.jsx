@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import tilesList from '../../data/ItemList/tilesList';
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const TilesPage = () => {
     useEffect(() => {

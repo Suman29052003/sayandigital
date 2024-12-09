@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import calenderList from "../../data/ItemList/calenderList";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const CalenderPage = () => {
   useEffect(() => {

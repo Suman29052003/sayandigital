@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import businessCardsList from "../../data/ItemList/businessCardsList";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const BusinessCardPage = () => {
   useEffect(() => {

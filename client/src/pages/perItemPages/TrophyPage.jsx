@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import trophyList from "../../data/ItemList/trophyList";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const TrophyPage = () => {
   useEffect(() => {

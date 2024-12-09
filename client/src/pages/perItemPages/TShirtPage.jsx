@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import tshirtList from '../../data/ItemList/tshirtList';
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 
 const TShirtPage = () => {

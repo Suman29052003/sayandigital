@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import standeeList from "../../data/ItemList/standeeList";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const StandeePage = () => {
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import photoFrameList from "../../data/ItemList/photoFrameList";
-import ProductCard from "../../components/Cards/ProductCard.jsx";
+import ProductCard from "@/components/Cards/ProductCard.jsx";
 
 const PhotoFramePage = () => {
   useEffect(() => {
@@ -15,7 +15,6 @@ const PhotoFramePage = () => {
           title={card.title}
           subTitle={card.subTitle}
           price={`From ${card.price} /piece`}
-
           image={card.image}
         />
       ))}
