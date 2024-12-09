@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import trophyList from "../../data/ItemList/trophyList";
 
-import ProductCard from "../../components/Cards/ProductCard"; // Ensure this path is correct
+import ProductCard from "../../components/Cards/ProductCard";
 
 const TrophyPage = () => {
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import coffeeMugsList from "../../data/ItemList/coffeeMugsList";
+import ProductCard from "../../components/Cards/ProductCard";
 
-import ProductCard from '../../components/Cards/ProductCard'
 
 
 const CoffeeMugsPage = () => {
