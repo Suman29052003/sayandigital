@@ -31,10 +31,6 @@ export default function ProductCard({
         subTitle,
         images: [image],
         price,
-        des_1,
-        des_2,
-        des_3,
-        des_4,
       },
     });
   };
