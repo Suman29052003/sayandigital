@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import keyChainsList from '../../data/ItemList/keyRingsList';
-import ProductCard from "../../components/Cards/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard.jsx";
 
 const KeyChainPage = () => {
     useEffect(() => {

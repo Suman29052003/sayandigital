@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import invitationCardList from '../../data/ItemList/invitationCardList';
-import ProductCard from "../../components/Cards/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard.jsx";
 
 const InvitationCardPage = () => {
     useEffect(() => {

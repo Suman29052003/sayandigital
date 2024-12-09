@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import corporateGiftsList from "../../data/ItemList/corporateGiftsList";
-import ProductCard from "../../components/Cards/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard.jsx";
 
 const CorporateGiftsPage = () => {
   useEffect(() => {

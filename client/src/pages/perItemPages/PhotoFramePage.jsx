@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import photoFrameList from "../../data/ItemList/photoFrameList";
-import ProductCard from "../../components/Cards/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard.jsx";
 
 const PhotoFramePage = () => {
   useEffect(() => {

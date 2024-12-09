@@ -1,6 +1,6 @@
 import React from "react";
 import letterHeadList from "../../data/ItemList/letterHeadList";
-import ProductCard from "../../components/Cards/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard.jsx";
 
 const LetterHeadPage = () => {
   return (
