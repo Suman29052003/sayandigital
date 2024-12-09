@@ -5,6 +5,7 @@ import ProductCard from "../../components/Cards/ProductCard.jsx";
 const CoffeeMugsPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+   
   }, []);
   
   return (
