@@ -70,7 +70,7 @@ const Login = () => {
     <>
       <ToastContainer position="top-right" />{" "}
       {/* Toast container for notifications */}
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-h-screen flex items-center p-7 justify-center bg-gray-50">
         <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <Link

@@ -70,9 +70,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true
-  }
-}, {
-  timestamps: true
+  },
+  resetToken: String,
+  resetTokenExpiration: Date,
 });
 
 const User = mongoose.model('User', userSchema);

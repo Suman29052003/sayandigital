@@ -23,10 +23,6 @@ connectDB();
 // Routes
 app.use('/api/users', userRoutes);
 
-// Test route
-// app.get('/', (req, res) => {
-//   res.json({ message: 'Welcome to the Express server!' });
-// });
 
 // Start server
 app.listen(PORT, () => {

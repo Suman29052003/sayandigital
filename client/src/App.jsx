@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  Link,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Authentication/Login";
@@ -22,6 +28,7 @@ import TShirtPage from "./pages/perItemPages/TShirtPage";
 import LetterHeadPage from "./pages/perItemPages/LetterHeadPage";
 import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
 import Profile from "./pages/Profile";
+import ForgotPassword from "./pages/Authentication/ForgotPassword";
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
@@ -67,6 +74,8 @@ const App = () => {
           {/* Authentication Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          {/* Forgot Password route  */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           {/*Profile Page for User */}
           <Route path="/profile/:userId" element={<Profile />} />
           {/* Product Page */}

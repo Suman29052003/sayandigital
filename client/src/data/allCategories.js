@@ -66,11 +66,12 @@ export const allCategories = [
     image: stickers,
     route: "stickers",
   },
+
   {
-    id: 9,
-    title: "Trophy",
-    image: trophy,
-    route: "trophy",
+    id:9,
+    title:'Trophy',
+    image:trophy,
+    route:'trophy'
   },
 
   {

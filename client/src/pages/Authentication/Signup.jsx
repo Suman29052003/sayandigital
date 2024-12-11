@@ -1,11 +1,10 @@
-import React, { useState } from "react"; // Importing React and useState hook
-import { useNavigate, Link } from "react-router-dom"; // Importing navigation and Link components
-import baseURL from "../../baseURL"; // Importing base URL for API calls
-import { ToastContainer, toast } from "react-toastify"; // Importing toast notifications
-import "react-toastify/dist/ReactToastify.css"; // Importing toast CSS
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import baseURL from "../../baseURL";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
-  // State to hold form data
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -19,81 +18,62 @@ const Signup = () => {
     country: "",
   });
 
-  // State to hold error messages
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
-  // Function to handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value, // Update specific field in formData
+      [e.target.name]: e.target.value,
     });
   };
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    setError(""); // Reset error state
+    e.preventDefault();
+    setError("");
 
-    // Basic validation for password match
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
-      toast.error("Error: Passwords do not match"); // Show error toast
-      return; // Exit if passwords do not match
+      toast.error("Error: Passwords do not match");
+      return;
     }
 
     try {
-      // API call to sign up the user
       const response = await fetch(`${baseURL}/api/users/signup`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // Set content type to JSON
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          phoneNumber: formData.phoneNumber,
-          city: formData.city,
-          pincode: formData.pincode,
-          country: formData.country,
-        }),
+        body: JSON.stringify(formData),
       });
 
-      const data = await response.json(); // Parse JSON response
+      const data = await response.json();
 
-      // Check if the response is not OK
       if (!response.ok) {
-        throw new Error(data.message || "Registration failed"); // Throw error if registration fails
+        throw new Error(data.message || "Registration failed");
       }
 
-      // Store token and firstName in local storage
       localStorage.setItem("token", data.token);
       localStorage.setItem("firstName", formData.firstName);
-      // localStorage.setItem("userId",data)
 
-      toast.success("Sign Up successful!"); // Show success toast
-      setTimeout(() => navigate("/"), 1000); // Navigate to home after 1 second
+      toast.success("Sign Up successful!");
+      setTimeout(() => navigate("/"), 1000);
     } catch (err) {
-      setError(err.message); // Set error message
-      toast.error("Error: " + err.message); // Show error toast
+      setError(err.message);
+      toast.error("Error: " + err.message);
     }
   };
 
   return (
     <>
-      <ToastContainer position="top-right" /> {/* Toast container for notifications */}
+      <ToastContainer position="top-right" />
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+        <div className="max-w-lg w-full space-y-8 p-8 bg-white rounded-lg shadow">
           <div className="flex items-center">
             <Link
               to="/"
               className="text-indigo-600 hover:text-indigo-500 flex items-center gap-2"
             >
-              {/* Back link to home */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -114,12 +94,11 @@ const Signup = () => {
 
           {error && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-              {error} {/* Display error message if exists */}
+              {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-            {/* Form fields for user input */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label
@@ -134,11 +113,10 @@ const Signup = () => {
                   type="text"
                   required
                   value={formData.firstName}
-                  onChange={handleChange} // Handle input change
+                  onChange={handleChange}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="lastName"
@@ -152,47 +130,47 @@ const Signup = () => {
                   type="text"
                   required
                   value={formData.lastName}
-                  onChange={handleChange} // Handle input change
+                  onChange={handleChange}
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
             </div>
 
-            {/* Other input fields for username, email, phone number, password, and confirm password */}
-            <div>
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Username
-              </label>
-              <input
-                id="username"
-                name="username"
-                type="text"
-                required
-                value={formData.username}
-                onChange={handleChange} // Handle input change
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange} // Handle input change
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="username"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Username
+                </label>
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  required
+                  value={formData.username}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
             </div>
 
             <div>
@@ -208,81 +186,83 @@ const Signup = () => {
                 type="tel"
                 required
                 value={formData.phoneNumber}
-                onChange={handleChange} // Handle input change
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={formData.password}
-                onChange={handleChange} // Handle input change
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Confirm Password
-              </label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                required
-                value={formData.confirmPassword}
-                onChange={handleChange} // Handle input change
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="city"
-                className="block text-sm font-medium text-gray-700"
-              >
-                City
-              </label>
-              <input
-                id="city"
-                name="city"
-                type="text"
-                required
-                value={formData.city}
                 onChange={handleChange}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
 
-            <div>
-              <label
-                htmlFor="pincode"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Pincode
-              </label>
-              <input
-                id="pincode"
-                name="pincode"
-                type="text"
-                required
-                value={formData.pincode}
-                onChange={handleChange}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Confirm Password
+                </label>
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  required
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="city"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  City
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  required
+                  value={formData.city}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="pincode"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Pincode
+                </label>
+                <input
+                  id="pincode"
+                  name="pincode"
+                  type="text"
+                  required
+                  value={formData.pincode}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
             </div>
 
             <div>
@@ -307,7 +287,7 @@ const Signup = () => {
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Sign up {/* Submit button for the form */}
+              Sign up
             </button>
           </form>
 
@@ -318,7 +298,7 @@ const Signup = () => {
                 to="/login"
                 className="font-medium text-indigo-600 hover:text-indigo-500 underline"
               >
-                Login here {/* Link to login page */}
+                Login here
               </Link>
             </p>
           </div>
@@ -328,4 +308,4 @@ const Signup = () => {
   );
 };
 
-export default Signup; // Exporting the Signup component
+export default Signup;
