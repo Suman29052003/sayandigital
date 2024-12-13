@@ -29,6 +29,7 @@ import LetterHeadPage from "./pages/perItemPages/LetterHeadPage";
 import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/Authentication/ForgotPassword";
+import ResetPassword from "./components/ForgotPassword/ResetPassword";
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
@@ -119,6 +120,8 @@ const App = () => {
             path="/product/invitation-card"
             element={<InvitationCardPage />}
           />
+
+          <Route path="/forgot-password/:token" element={<ResetPassword/>}/>
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

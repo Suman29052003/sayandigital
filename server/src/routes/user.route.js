@@ -2,7 +2,8 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
-const nodemailer = require('nodemailer'); // Import Nodemailer
+// const nodemailer = require('nodemailer'); // Import Nodemailer
+const sendMail = require('../config/sendMail')
 const crypto = require('crypto'); // Import crypto for generating tokens
 require('dotenv').config();
 
@@ -16,13 +17,13 @@ router.post('/signup', async (req, res) => {
     const { username, email, password, firstName, lastName, phoneNumber, city, pincode, country } = req.body;
 
     // Check if user already exists
-    const existingUser = await User.findOne({ 
-      $or: [{ email }, { username }] 
+    const existingUser = await User.findOne({
+      $or: [{ email }, { username }]
     });
-    
+
     if (existingUser) {
-      return res.status(400).json({ 
-        message: 'User with this email or username already exists' 
+      return res.status(400).json({
+        message: 'User with this email or username already exists'
       });
     }
 
@@ -45,20 +46,20 @@ router.post('/signup', async (req, res) => {
     });
 
     const savedUser = await newUser.save();
-    
+
     // Generate JWT token
     const token = jwt.sign(
-      { 
+      {
         userId: savedUser._id,
-        role: savedUser.role 
-      }, 
+        role: savedUser.role
+      },
       JWT_SECRET,
       { expiresIn: '24h' }
     );
-    
+
     // Remove password from response
     const { password: _, ...userWithoutPassword } = savedUser._doc;
-    
+
     res.status(201).json({
       message: 'User created successfully',
       user: userWithoutPassword,
@@ -66,9 +67,9 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ 
-      message: 'Error creating user', 
-      error: error.message 
+    res.status(500).json({
+      message: 'Error creating user',
+      error: error.message
     });
   }
 });
@@ -81,25 +82,25 @@ router.post('/login', async (req, res) => {
     // Find user
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ 
-        message: 'User not found' 
+      return res.status(404).json({
+        message: 'User not found'
       });
     }
 
     // Verify password
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(401).json({ 
-        message: 'Invalid password' 
+      return res.status(401).json({
+        message: 'Invalid password'
       });
     }
 
     // Generate JWT token
     const token = jwt.sign(
-      { 
+      {
         userId: user._id,
-        role: user.role 
-      }, 
+        role: user.role
+      },
       JWT_SECRET,
       { expiresIn: '24h' }
     );
@@ -114,9 +115,9 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ 
-      message: 'Error logging in', 
-      error: error.message 
+    res.status(500).json({
+      message: 'Error logging in',
+      error: error.message
     });
   }
 });
@@ -125,7 +126,7 @@ router.post('/login', async (req, res) => {
 router.get('/profile/:userId', async (req, res) => {
   try {
     const { userId } = req.params; // Get userId from request parameters
-    
+
     const user = await User.findById(userId).select('-password'); // Exclude password from response
 
     if (!user) {
@@ -175,6 +176,7 @@ router.put('/profile/:userId', async (req, res) => {
   }
 });
 
+
 // Password Reset Request
 router.post('/forgot-password', async (req, res) => {
   const { email } = req.body;
@@ -182,7 +184,7 @@ router.post('/forgot-password', async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'User  not found' });
     }
 
     // Generate a password reset token
@@ -191,56 +193,49 @@ router.post('/forgot-password', async (req, res) => {
     user.resetTokenExpiration = Date.now() + 3600000; // Token valid for 1 hour
     await user.save();
 
-    // Send email with reset link
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail', // Use your email service
-      auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS, // Your email password
-      },
-    });
-
+    // Send email with reset link using sendMail function
     const resetLink = `http://localhost:5173/forgot-password/${token}`; // Update with your frontend URL
+    const emailSubject = 'Password Reset';
+    const emailMessage = `<p>You requested a password reset. Click the link below to reset your password:</p>
+                          <a href="${resetLink}">Reset Password</a>`;
 
-    await transporter.sendMail({
-      to: email,
-      subject: 'Password Reset',
-      html: `<p>You requested a password reset. Click the link below to reset your password:</p>
-             <a href="${resetLink}">Reset Password</a>`,
-    }, (error, info) => {
-      if (error) {
-        console.error("Error sending email:", error); // Log the error
-        return res.status(500).json({ message: 'Error sending password reset email', error: error.message });
-      }
-      res.status(200).json({ message: 'Password reset link sent to your email' });
-    });
+    sendMail(email, emailSubject, emailMessage);
+
+    res.status(200).json({ message: 'Password reset link sent to your email' });
   } catch (error) {
     console.error(error); // Log the error for debugging
     res.status(500).json({ message: 'Error sending password reset email', error: error.message });
   }
 });
-
 // Password Reset
 router.post('/forgot-password/:token', async (req, res) => {
   const { token } = req.params;
   const { newPassword } = req.body;
 
   try {
-    const user = await User.findOne({ resetToken: token, resetTokenExpiration: { $gt: Date.now() } });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid or expired token' });
-    }
+      // Check if newPassword is provided
+      if (!newPassword) {
+          return res.status(400).json({ message: 'New password is required' });
+      }
 
-    // Hash new password
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(newPassword, salt);
-    user.resetToken = undefined; // Clear reset token
-    user.resetTokenExpiration = undefined; // Clear expiration
-    await user.save();
+      const user = await User.findOne({ resetToken: token, resetTokenExpiration: { $gt: Date.now() } });
+      if (!user) {
+          return res.status(400).json({ message: 'Invalid or expired token' });
+      }
 
-    res.status(200).json({ message: 'Password has been reset successfully' });
+      // Hash new password
+      const salt = await bcrypt.genSalt(10);
+      console.log('New Password:', newPassword); // Log the new password
+      console.log('Salt:', salt); // Log the generated salt
+      user.password = await bcrypt.hash(newPassword, salt);
+      user.resetToken = undefined; // Clear reset token
+      user.resetTokenExpiration = undefined; // Clear expiration
+      await user.save();
+
+      res.status(200).json({ message: 'Password has been reset successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Error resetting password', error: error.message });
+      console.error('Error resetting password:', error); // Log the error for debugging
+      res.status(500).json({ message: 'Error resetting password', error: error.message });
   }
 });
 
