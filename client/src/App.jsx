@@ -64,8 +64,9 @@ const App = () => {
   }, [location.pathname]); // Dependency on pathname
 
   return (
-    <div className="flex flex-col min-h-screen max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <Navbar />
+    <div className="flex flex-col min-h-screen max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex-grow">
         <Routes>
           {/* Home Route */}
@@ -125,8 +126,9 @@ const App = () => {
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}
-      <Footer page={footerText} />
     </div>
+      <Footer page={footerText} />
+    </>
   );
 };
 
