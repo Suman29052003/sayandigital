@@ -1,8 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FiPlusCircle, FiSettings, FiPackage, FiShoppingCart, FiUser } from "react-icons/fi";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FiPlusCircle, FiSettings, FiPackage, FiShoppingCart, FiUser  } from "react-icons/fi";
 
 const Sidebar = () => {
+    const userId = localStorage.getItem("userId");
+    const location = useLocation();
+
+    // Define the links and their corresponding paths
+    const links = [
+        { path: `/admin/${userId}`, label: "Admin Info", icon: <FiUser  className="text-xl" /> },
+        { path: "/admin/add-product", label: "Add Product", icon: <FiPlusCircle className="text-xl" /> },
+        { path: "/admin/manage-products", label: "Manage Products", icon: <FiPackage className="text-xl" /> },
+        { path: "/admin/orders", label: "View Orders", icon: <FiShoppingCart className="text-xl" /> },
+        { path: "/admin/settings", label: "Settings", icon: <FiSettings className="text-xl" /> },
+    ];
+
     return (
         <div className="w-72 my-4 rounded-xl h-screen bg-gradient-to-b from-gray-700 to-gray-500 text-white shadow-lg">
             <div className="p-6">
@@ -11,53 +23,21 @@ const Sidebar = () => {
                 </h2>
             </div>
             <ul className="mt-8 space-y-4 px-4">
-            <li>
-                    <Link
-                        to="/admin/profile"
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        <FiUser className="text-xl" />
-                        <span className="font-medium">Admin Info</span>
-                    </Link>
-                </li>
-
-                <li>
-                    <Link
-                        to="/admin/add-product"
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        <FiPlusCircle className="text-xl" />
-                        <span className="font-medium">Add Product</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/admin/manage-products"
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        <FiPackage className="text-xl" />
-                        <span className="font-medium">Manage Products</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/admin/orders"
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        <FiShoppingCart className="text-xl" />
-                        <span className="font-medium">View Orders</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/admin/settings"
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        <FiSettings className="text-xl" />
-                        <span className="font-medium">Settings</span>
-                    </Link>
-                </li>
-              
+                {links.map((link) => (
+                    <li key={link.path}>
+                        <Link
+                            to={link.path}
+                            className={`flex items-center gap-4 p-3 rounded-lg transition-colors ${
+                                location.pathname === link.path ? "bg-gray-700 underline" : "hover:bg-gray-700"
+                            }`}
+                        >
+                            {link.icon}
+                            <span className={`font-medium ${location.pathname === link.path ? "underline" : ""}`}>
+                                {link.label}
+                            </span>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );

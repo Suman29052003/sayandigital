@@ -16,7 +16,7 @@ const AdminPanel = () => {
       {/* Admin components change based on the route */}
       <div className="admin-components flex-1 p-4">
         <Routes>
-          <Route path="profile" element={<AdminProfile />} />
+          <Route path=":userId" element={<AdminProfile />} />
           <Route path="add-product" element={<AddProduct />} />
           <Route path="manage-products" element={< ManageProduct/>} />
           <Route path="orders" element={< ViewOrders/>} />
