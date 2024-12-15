@@ -7,17 +7,20 @@ const PhotoFramePage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="flex md:flex-row flex-col gap-4 py-4 items-center justify-center flex-wrap">
-      {photoFrameList.map((card) => (
-        <ProductCard
-          key={card.id}
-          id={card.id}
-          title={card.title}
-          subTitle={card.subTitle}
-          price={`From ${card.price} /piece`}
-          image={card.image}
-        />
-      ))}
+    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 py-4 ">
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mx-auto py-4">
+        {photoFrameList.map((card) => (
+          <ProductCard
+            key={card.id}
+            id={card.id}
+            title={card.title}
+            subTitle={card.subTitle}
+            price={`From ${card.price} /piece`}
+            image={card.image}
+          />
+        ))}
+      </div>
     </div>
   );
 };

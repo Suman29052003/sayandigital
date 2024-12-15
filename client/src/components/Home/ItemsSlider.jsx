@@ -29,7 +29,7 @@ const ItemsSlider = () => {
   };
 
   return (
-    <div className='relative w-full my-3 sm:my-5 bg-gradient-to-r from-[#FFDDAE] from-40% to-[#C6E7FF] h-[200px] sm:h-[250px] flex items-center'>
+    <div className='relative w-full my-3 sm:my-5 bg-gradient-to-r from-[#FFDDAE] from-40% to-[#C6E7FF] min-h-[200px]  flex items-center'>
       {/* Left Navigation Button */}
       <button 
         onClick={() => scroll('left')}
@@ -49,7 +49,7 @@ const ItemsSlider = () => {
             key={item.id} 
             title={item.title} 
             image={item.image}
-            width={window.innerWidth < 640 ? 240 : 300}
+            width={window.innerWidth < 640 ? 210 : 300}
             height={window.innerWidth < 640 ? 160 : 200}
             variant="full"
           />

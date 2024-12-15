@@ -30,6 +30,7 @@ import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/Authentication/ForgotPassword";
 import ResetPassword from "./components/ForgotPassword/ResetPassword";
+import AdminPage from "./pages/Admin/AdminPage";
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
@@ -66,8 +67,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-    <div className="flex flex-col min-h-screen max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex-grow">
+      <div className=" min-h-screen max-w-[1400px] flex flex-col mx-auto px-4 sm:px-6 lg:px-8">
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />
@@ -121,12 +121,14 @@ const App = () => {
             path="/product/invitation-card"
             element={<InvitationCardPage />}
           />
-
-          <Route path="/forgot-password/:token" element={<ResetPassword/>}/>
+          {/* Route for forgot-password  */}
+          <Route path="/forgot-password/:token" element={<ResetPassword />} />
+          {/* Route for admin panel */}
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}
-    </div>
+
       <Footer page={footerText} />
     </>
   );

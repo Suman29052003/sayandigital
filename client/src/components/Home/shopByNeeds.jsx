@@ -24,7 +24,7 @@ const ShopByNeeds = () => {
   };
 
   return (
-    <div className="container mx-auto py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+    <div className="h-auto mx-auto py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
       {/* Section header */}
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         <div className="h-[1px] bg-gray-300 flex-grow"></div>
@@ -46,7 +46,7 @@ const ShopByNeeds = () => {
 
         {/* Cards Container */}
         <div className="cards-container overflow-x-hidden scroll-smooth">
-          <div className="flex gap-3 sm:gap-4 lg:gap-4 px-2 sm:px-4">
+          <div className="flex gap-3 sm:gap-4 lg:gap-4 px-2 sm:px-4 h-auto">
             {bannerData.map((item) => (
               <div key={item.id} className="flex-shrink-0">
                 <ItemCard 
