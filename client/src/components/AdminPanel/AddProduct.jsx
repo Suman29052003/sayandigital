@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import baseURL from '../../baseURL';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddProduct = () => {
     const [product, setProduct] = useState({
         name: '',
-        image: '', // Added image field
+        image: null,
         description: '',
         price: '',
         category: '',
@@ -12,31 +15,46 @@ const AddProduct = () => {
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });
+        const { name, value, type, files } = e.target;
+        if (type === 'file') {
+            setProduct({ ...product, [name]: files[0] });
+        } else {
+            setProduct({ ...product, [name]: value });
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        for (const key in product) {
+            formData.append(key, product[key]);
+        }
+
         try {
-            const response = await axios.post('/api/products/add', product);
+            const response = await axios.post(`${baseURL}/api/products/add`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
             console.log('Product added:', response.data);
-            // Reset form or show success message
+            toast.success('Item added successfully'); // Show success toast
             setProduct({
                 name: '',
-                image: '',
+                image: null,
                 description: '',
                 price: '',
                 category: '',
                 stock: ''
-            }); // Reset form after submission
+            });
         } catch (error) {
             console.error('Error adding product:', error);
+            toast.error('Error adding item'); // Show error toast
         }
     };
 
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
             <h1 className="text-2xl font-bold mb-4">Admin Panel</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <input
@@ -49,10 +67,8 @@ const AddProduct = () => {
                     className="w-full p-2 border border-gray-300 rounded"
                 />
                 <input
-                    type="text"
+                    type="file"
                     name="image"
-                    placeholder="Image URL"
-                    value={product.image}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
