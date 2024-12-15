@@ -1,11 +1,11 @@
 import React from 'react'
 
-const AdminPage = () => {
+const ViewOrders = () => {
   return (
     <div>
-      lol
+      orders
     </div>
   )
 }
 
-export default AdminPage
+export default ViewOrders

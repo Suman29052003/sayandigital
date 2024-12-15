@@ -5,7 +5,7 @@ import baseURL from "../baseURL";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "@mui/material/Button";
-import Loader from "../components/Loader/Backdrop";
+import Loader from "../components/Loader/Loader";
 
 
 const Profile = () => {

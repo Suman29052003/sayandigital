@@ -30,7 +30,9 @@ import InvitationCardPage from "./pages/perItemPages/InvitationCardPage";
 import Profile from "./pages/Profile";
 import ForgotPassword from "./pages/Authentication/ForgotPassword";
 import ResetPassword from "./components/ForgotPassword/ResetPassword";
-import AdminPage from "./pages/Admin/AdminPage";
+import AdminPanel from "./pages/AdminPanel";
+import AdminInfo from "./components/AdminPanel/AdminProfile";
+
 const App = () => {
   const location = useLocation();
   const [footerText, setFooterText] = useState("Go Back to Home"); // Default footer text
@@ -124,7 +126,9 @@ const App = () => {
           {/* Route for forgot-password  */}
           <Route path="/forgot-password/:token" element={<ResetPassword />} />
           {/* Route for admin panel */}
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/*" element={<AdminPanel />} />
+
+
         </Routes>
       </div>
       {/* Updated Footer to use dynamic text */}

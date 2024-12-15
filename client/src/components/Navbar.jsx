@@ -1,17 +1,16 @@
 // Import necessary dependencies and assets
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import storeLogo from "../assets/logos/store_logo.png";
 import searchIcon from "../assets/icons/search.png";
 import profileIcon from "../assets/icons/profile.png";
-import cartIcon from "../assets/icons/cart.png";
 import hamIcon from "../assets/icons/hamburger.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [firstName, setFirstName] = useState("");
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
@@ -22,6 +21,7 @@ const Navbar = () => {
       const storedFirstName = localStorage.getItem("firstName");
       const userid = localStorage.getItem("userId");
       const role = localStorage.getItem("role");
+
       setIsLoggedIn(!!token);
       setFirstName(storedFirstName || "");
       setUserId(userid);
@@ -29,7 +29,6 @@ const Navbar = () => {
     };
 
     checkAuth();
-    // Add event listener for storage changes
     window.addEventListener("storage", checkAuth);
 
     return () => {
@@ -53,12 +52,19 @@ const Navbar = () => {
           <span className="text-gray-700 font-semibold text-lg">
             Hello, {firstName}
           </span>
-          {isAdmin && (
+          {isAdmin ? (
             <Link
               to="/admin"
               className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
             >
               Admin
+            </Link>
+          ) : (
+            <Link
+              to={`/profile/${userId}`}
+              className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
+            >
+              Account
             </Link>
           )}
           <button
@@ -104,14 +110,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Auth & Cart */}
-        <div className="flex items-center gap-6">
-          <AuthButtons />
-          <Link to={`/profile/${userId}`} className="flex items-center gap-2">
-            <img src={profileIcon} alt="cart" className="w-6 h-6" />
-            <span className="font-semibold text-lg">Account</span>
-          </Link>
-        </div>
+        {/* Auth Buttons */}
+        <AuthButtons />
       </div>
 
       {/* Mobile Menu Button */}
@@ -136,19 +136,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation Links */}
-          <div className="flex flex-col border-t border-gray-100">
-            <div className="p-4 border-b border-gray-100">
-              <AuthButtons />
-            </div>
-            <Link
-              to={`/profile/${userId}`}
-              className="p-4 flex items-center gap-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <img src={profileIcon} alt="cart" className="w-6 h-6" />
-              <span className="font-semibold text-lg">Account</span>
-            </Link>
+          {/* Mobile Auth Buttons */}
+          <div className="p-4 border-t border-gray-100">
+            <AuthButtons />
           </div>
         </div>
       )}
