@@ -14,7 +14,7 @@ const JWT_SECRET = 'process.env.JWT_SECRET';
 // User Signup
 router.post('/signup', async (req, res) => {
   try {
-    const { username, email, password, firstName, lastName, phoneNumber, city, pincode, country } = req.body;
+    const { username, email, password, firstName, lastName, phoneNumber, city,role, pincode, country } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({
@@ -42,7 +42,7 @@ router.post('/signup', async (req, res) => {
       city,
       pincode,
       country,
-      role: 'user' // default role
+      role,
     });
 
     const savedUser = await newUser.save();

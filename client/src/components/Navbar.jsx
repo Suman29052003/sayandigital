@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [userId, setUserId] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
   // Check authentication status whenever component mounts or token changes
@@ -20,9 +21,11 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
       const storedFirstName = localStorage.getItem("firstName");
       const userid = localStorage.getItem("userId");
+      const role = localStorage.getItem("role");
       setIsLoggedIn(!!token);
       setFirstName(storedFirstName || "");
-      setUserId(userid)
+      setUserId(userid);
+      setIsAdmin(role === "admin");
     };
 
     checkAuth();
@@ -50,6 +53,14 @@ const Navbar = () => {
           <span className="text-gray-700 font-semibold text-lg">
             Hello, {firstName}
           </span>
+          {isAdmin && (
+            <Link
+              to="/admin"
+              className="bg-green-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"
+            >
+              Admin
+            </Link>
+          )}
           <button
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded-md shadow-md transition-transform duration-300 hover:scale-105"

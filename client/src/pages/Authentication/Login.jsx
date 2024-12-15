@@ -47,10 +47,11 @@ const Login = () => {
       }
 
       // Success Block: Store token and user details in local storage
-      console.log("Login successful, storing token and user details");
+
       localStorage.setItem("token", data.token); // Store token
       localStorage.setItem("firstName", data.user.firstName); // Store user's first name
       localStorage.setItem("userId", data.user._id);
+      localStorage.setItem("role", data.user.role);
 
       toast.success("Login successful!"); // Show success toast
       setTimeout(() => {

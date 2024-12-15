@@ -55,6 +55,7 @@ const Signup = () => {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("firstName", formData.firstName);
+      localStorage.setItem("role", data.user.role);
 
       toast.success("Sign Up successful!");
       setTimeout(() => navigate("/"), 1000);

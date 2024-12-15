@@ -100,7 +100,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="max-h-screen bg-gray-50 py-10 px-4">
+    <div className="h-[100vh] bg-gray-50 py-10 px-4">
       <ToastContainer position="top-right" />
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
         {/* Profile Header */}
