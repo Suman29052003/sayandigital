@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image: {
+    image: { // Uncommented the image field
         type: String,
         required: true
     },

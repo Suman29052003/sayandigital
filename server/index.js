@@ -6,6 +6,7 @@ const connectDB = require('./src/config/database');
 const app = express();
 const PORT = process.env.PORT || 8000;
 const userRoutes = require('./src/routes/user.route');
+const productRoutes = require('./src/routes/product.route')
 // Middleware
 app.use(cors({
   // origin: [process.env.FRONTEND_URL],
@@ -22,6 +23,7 @@ connectDB();
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
 
 
 // Start server

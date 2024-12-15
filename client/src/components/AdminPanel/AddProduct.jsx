@@ -4,7 +4,7 @@ import axios from 'axios';
 const AddProduct = () => {
     const [product, setProduct] = useState({
         name: '',
-        image: '',
+        image: '', // Added image field
         description: '',
         price: '',
         category: '',
@@ -22,6 +22,14 @@ const AddProduct = () => {
             const response = await axios.post('/api/products/add', product);
             console.log('Product added:', response.data);
             // Reset form or show success message
+            setProduct({
+                name: '',
+                image: '',
+                description: '',
+                price: '',
+                category: '',
+                stock: ''
+            }); // Reset form after submission
         } catch (error) {
             console.error('Error adding product:', error);
         }
@@ -35,6 +43,7 @@ const AddProduct = () => {
                     type="text"
                     name="name"
                     placeholder="Product Name"
+                    value={product.name}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
@@ -43,6 +52,7 @@ const AddProduct = () => {
                     type="text"
                     name="image"
                     placeholder="Image URL"
+                    value={product.image}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
@@ -50,6 +60,7 @@ const AddProduct = () => {
                 <textarea
                     name="description"
                     placeholder="Description"
+                    value={product.description}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
@@ -58,6 +69,7 @@ const AddProduct = () => {
                     type="number"
                     name="price"
                     placeholder="Price"
+                    value={product.price}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
@@ -66,6 +78,7 @@ const AddProduct = () => {
                     type="text"
                     name="category"
                     placeholder="Category"
+                    value={product.category}
                     onChange={handleChange}
                     required
                     className="w-full p-2 border border-gray-300 rounded"
@@ -74,6 +87,7 @@ const AddProduct = () => {
                     type="number"
                     name="stock"
                     placeholder="Stock"
+                    value={product.stock}
                     onChange={handleChange}
                     className="w-full p-2 border border-gray-300 rounded"
                 />
