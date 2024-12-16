@@ -20,7 +20,7 @@ const AdminPanel = () => {
           <Route path=":userId" element={<AdminProfile />} />
           <Route path="add-product" element={<AddProduct />} />
           <Route path="manage-product" element={<ManageProduct />} />
-          <Route path="update-admin" element={<UpdateAdmin />} />
+          <Route path="update-admin/:userId" element={<UpdateAdmin />} />
           <Route path="add-admin" element={<AddAdmin />} />
         </Routes>
       </div>

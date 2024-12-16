@@ -3,7 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Button from "@mui/material/Button";
+import greenTick from "../../assets/icons/green_tick.png";
+
 import baseURL from "../../baseURL";
 import Loader from "../Loader/Loader";
 
@@ -12,6 +13,8 @@ const AdminProfile = () => {
   const [error, setError] = useState(null);
   const { userId } = useParams();
 
+  const isAdmin = localStorage.getItem("role");
+
   useEffect(() => {
     const fetchAdminProfile = async () => {
       try {
@@ -19,6 +22,7 @@ const AdminProfile = () => {
           `${baseURL}/api/users/profile/${userId}`
         );
         setAdmin(response.data);
+        console.log(isAdmin);
       } catch (err) {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -59,12 +63,21 @@ const AdminProfile = () => {
         {/* Profile Header */}
         <div className="flex items-center space-x-4 p-6 border-b">
           <div className="w-full flex flex-col md:flex-row items-center justify-between">
-            <h1 className="text-3xl font-bold text-gray-800">{admin.username}</h1>
+            <h1 className="text-3xl font-bold text-gray-800">
+              {admin.username}
+            </h1>
+            {isAdmin && (
+              <div className="flex w-full items-center">
+                <img className="ml-2 w-12 h-auto" src={greenTick} alt="Admin" />
+              </div>
+            )}
           </div>
         </div>
 
         <div className="p-6">
-          <h2 className="text-lg font-semibold text-gray-800">Personal Information</h2>
+          <h2 className="text-lg font-semibold text-gray-800">
+            Personal Information
+          </h2>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
             {["username", "email", "firstName", "lastName", "phoneNumber"].map(
               (field) => (

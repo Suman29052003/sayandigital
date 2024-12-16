@@ -11,7 +11,7 @@ const Sidebar = () => {
         { path: `/admin/${userId}`, label: "Admin Info", icon: <FiUser  className="text-xl" /> },
         { path: "/admin/add-product", label: "Add Product", icon: <FiPlusCircle className="text-xl" /> },
         { path: "/admin/manage-product", label: "Manage Product", icon: <FiPackage className="text-xl" /> },
-        { path: "/admin/update-admin", label: "Edit Info", icon: <FiEdit className="text-xl" /> },
+        { path: `/admin/update-admin/${userId}`, label: "Edit Info", icon: <FiEdit className="text-xl" /> },
         { path: "/admin/add-admin", label: "Add Admin", icon: <FiUserPlus className="text-xl" /> },
 
     ];
