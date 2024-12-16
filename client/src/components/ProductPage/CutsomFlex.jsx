@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import OrderButton from "./OrderButton";
 
-const ProductCustomization = () => {
+const CustomFlex = () => {
   const [length, setLength] = useState(0); // Length in feet
   const [width, setWidth] = useState(0); // Width in feet
   const [quantity, setQuantity] = useState(1);
@@ -82,9 +83,17 @@ const ProductCustomization = () => {
             Buy in bulk and save
           </a>
         </div>
+
+        <OrderButton 
+          title="Flex & Banner" 
+          price={calculatePrice()} 
+          quantity={quantity} 
+          length={length} 
+          width={width} 
+        />
       </div>
     </div>
   );
 };
 
-export default ProductCustomization;
+export default CustomFlex;
