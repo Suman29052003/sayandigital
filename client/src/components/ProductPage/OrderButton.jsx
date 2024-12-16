@@ -3,7 +3,7 @@ import wpImg from "../../assets/icons/whatsapp-icon.png";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
-const WPButton = ({ title, price, quantity }) => {
+const OrderButton = ({ title, price, quantity }) => {
   const phoneNumber = "7797607126"; // Replace with your WhatsApp number in international format
   const navigate = useNavigate();
 
@@ -27,15 +27,15 @@ const WPButton = ({ title, price, quantity }) => {
   return (
     <>
       <div
-        className="w-full md:w-[30%] bg-[#44EF69] p-4 md:p-6 m-4 rounded-full flex items-center justify-center relative cursor-pointer"
+        className="w-[50%] bg-[#44EF69] p-2 md:p-4 my-4 rounded-md flex items-center justify-center relative gap-4 cursor-pointer"
         onClick={handleClick}
       >
         <img
           src={wpImg}
           alt=""
-          className="w-[40px] md:w-[56px] h-auto absolute left-0 m-3"
+          className="w-[40px] md:w-[56px] h-auto absolute left-0 mx-3"
         />
-        <span className="text-xl md:text-3xl font-bold text-white">
+        <span className="text-xl md:text-2xl ml-4 font-bold text-white">
           Order Now!
         </span>
       </div>
@@ -44,4 +44,4 @@ const WPButton = ({ title, price, quantity }) => {
   );
 };
 
-export default WPButton;
+export default OrderButton;

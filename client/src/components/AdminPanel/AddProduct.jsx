@@ -38,24 +38,28 @@ const AddProduct = () => {
             });
             console.log('Product added:', response.data);
             toast.success('Item added successfully'); // Show success toast
-            setProduct({
-                name: '',
-                image: null,
-                description: '',
-                price: '',
-                category: '',
-                stock: ''
-            });
+            
         } catch (error) {
             console.error('Error adding product:', error);
             toast.error('Error adding item'); // Show error toast
         }
     };
 
+    const resetForm = () => {
+        setProduct({
+            name: '',
+            image: null,
+            description: '',
+            price: '',
+            category: '',
+            stock: ''
+        });
+    };
+
     return (
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-            <h1 className="text-2xl font-bold mb-4">Admin Panel</h1>
+            <h1 className="text-2xl font-bold mb-4">Add Product</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                     type="text"
@@ -112,6 +116,12 @@ const AddProduct = () => {
                     className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
                 >
                     Add Product
+                </button>
+                <button
+                    onClick={resetForm}
+                    className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition"
+                >
+                    Reset
                 </button>
             </form>
         </div>

@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import Sidebar from "../components/AdminPanel/Sidebar";
 import AddProduct from "../components/AdminPanel/AddProduct";
 import AdminProfile from "../components/AdminPanel/AdminProfile";
+import UpdateAdmin from "../components/AdminPanel/UpdateAdmin";
+import AddAdmin from "../components/AdminPanel/AddAdmin";
 import ManageProduct from "../components/AdminPanel/ManageProduct";
-import ViewOrders from "../components/AdminPanel/ViewOrders";
-import AdminSetting from "../components/AdminPanel/AdminSetting";
+
 
 const AdminPanel = () => {
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       {/* Sidebar remains static */}
       <Sidebar />
 
@@ -18,9 +19,9 @@ const AdminPanel = () => {
         <Routes>
           <Route path=":userId" element={<AdminProfile />} />
           <Route path="add-product" element={<AddProduct />} />
-          <Route path="manage-products" element={< ManageProduct/>} />
-          <Route path="orders" element={< ViewOrders/>} />
-          <Route path="settings" element={< AdminSetting/>} />
+          <Route path="manage-product" element={<ManageProduct />} />
+          <Route path="update-admin" element={<UpdateAdmin />} />
+          <Route path="add-admin" element={<AddAdmin />} />
         </Routes>
       </div>
       

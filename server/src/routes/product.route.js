@@ -11,8 +11,7 @@ router.post('/add', upload.single('image'), async (req, res) => { // Make sure t
     }
 
     const { name, description, price, category, stock } = req.body;
-    const image = `/uploads/${req.file.filename}`;
-
+    const image = `uploads/${req.file.filename}`; 
     const newProduct = new Product({
         name,
         image,

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ViewOrders = () => {
+const UpdateAdmin = () => {
   return (
     <div>
-      orders
+      
     </div>
   )
 }
 
-export default ViewOrders
+export default UpdateAdmin

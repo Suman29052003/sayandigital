@@ -27,7 +27,6 @@ const ProductPage = () => {
       />
       <OrderTagLine />
       <ProductProvider>
-        <WPButton title={title} price={price} quantity={quantity} />
       </ProductProvider>
       <DeliveryBanner />
     </div>

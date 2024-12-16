@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiPlusCircle, FiSettings, FiPackage, FiShoppingCart, FiUser  } from "react-icons/fi";
+import { FiPlusCircle, FiEdit, FiUserPlus, FiPackage, FiUser  } from "react-icons/fi";
 
 const Sidebar = () => {
     const userId = localStorage.getItem("userId");
@@ -10,19 +10,20 @@ const Sidebar = () => {
     const links = [
         { path: `/admin/${userId}`, label: "Admin Info", icon: <FiUser  className="text-xl" /> },
         { path: "/admin/add-product", label: "Add Product", icon: <FiPlusCircle className="text-xl" /> },
-        { path: "/admin/manage-products", label: "Manage Products", icon: <FiPackage className="text-xl" /> },
-        { path: "/admin/orders", label: "View Orders", icon: <FiShoppingCart className="text-xl" /> },
-        { path: "/admin/settings", label: "Settings", icon: <FiSettings className="text-xl" /> },
+        { path: "/admin/manage-product", label: "Manage Product", icon: <FiPackage className="text-xl" /> },
+        { path: "/admin/update-admin", label: "Edit Info", icon: <FiEdit className="text-xl" /> },
+        { path: "/admin/add-admin", label: "Add Admin", icon: <FiUserPlus className="text-xl" /> },
+
     ];
 
     return (
-        <div className="w-72 my-4 rounded-xl h-screen bg-gradient-to-b from-gray-700 to-gray-500 text-white shadow-lg">
+        <div className="w-72 p-2 my-4 rounded-xl lg:min-h-auto bg-gradient-to-b from-gray-700 to-gray-500 text-white shadow-lg mx-auto">
             <div className="p-6">
                 <h2 className="text-2xl font-bold tracking-wide text-center border-b border-gray-700 pb-4">
                     Admin Panel
                 </h2>
             </div>
-            <ul className="mt-8 space-y-4 px-4">
+            <ul className=" space-y-2 px-4">
                 {links.map((link) => (
                     <li key={link.path}>
                         <Link

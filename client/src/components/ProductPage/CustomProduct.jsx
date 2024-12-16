@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import minusIcon from "../../assets/icons/minus.png";
 import plusIcon from "../../assets/icons/plus.png";
+import OrderButton from "./OrderButton";
+
 
 const CustomProduct = ({
   title,
@@ -65,6 +67,8 @@ const CustomProduct = ({
           Buy in bulk and save
         </p>
       </div>
+      <OrderButton title={title} price={price} quantity={quantity} />
+
     </div>
   );
 };
