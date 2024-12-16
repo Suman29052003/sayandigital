@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const userRoutes = require('./src/routes/user.route');
 const productRoutes = require('./src/routes/product.route')
+const path = require('path');
 // Middleware
 app.use(cors({
   // origin: [process.env.FRONTEND_URL],
@@ -17,8 +18,8 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static('uploads'));
-
+// Serve static files from the 'uploads' folder
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
 connectDB();
