@@ -15,7 +15,7 @@ const AdminPanel = () => {
       <Sidebar />
 
       {/* Admin components change based on the route */}
-      <div className="admin-components flex-1 p-4">
+      <div className="admin-components w-full flex-1 p-4 items-start justify-center">
         <Routes>
           <Route path=":userId" element={<AdminProfile />} />
           <Route path="add-product" element={<AddProduct />} />
