@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const OrderButton = ({ title, price, quantity, length, width }) => {
-  const phoneNumber = import.meta.env.PHONE_NUMBER;
-  // Replace with your WhatsApp number in international format
+  const phoneNumber = import.meta.env.VITE_PHONE_NUMBER;
+
   const navigate = useNavigate();
 
   const handleClick = () => {
