@@ -6,7 +6,7 @@ const Sidebar = () => {
   const userId = localStorage.getItem("userId");
   const location = useLocation();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Define the links and their corresponding paths
   const links = [
@@ -22,7 +22,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-auto p-4 my-4 rounded-xl lg:min-h-auto bg-gradient-to-b from-gray-700 to-gray-500 text-white shadow-lg mx-auto">
+    <div className="w-auto max-h-[28rem] p-4 my-4 rounded-xl lg:min-h-auto bg-gradient-to-b from-gray-700 to-gray-500 text-white shadow-lg mx-auto">
       <div className="p-6">
         <h2 className="text-2xl font-bold tracking-wide text-center border-b border-gray-700 pb-4">
           Admin Panel

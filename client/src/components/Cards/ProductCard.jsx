@@ -49,7 +49,7 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
       }}
     >
       <CardOverflow>
-        <AspectRatio sx={{ minWidth: 1 / 4, aspectRatio: "16/9" }}>
+        <AspectRatio sx={{ minWidth: 1 / 4,  aspectRatio: "16/9" }}>
           <img
             src={image}
             loading="lazy"

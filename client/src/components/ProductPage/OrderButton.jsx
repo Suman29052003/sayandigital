@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 const OrderButton = ({ title, price, quantity, length, width }) => {
-  const phoneNumber = "7797607126"; // Replace with your WhatsApp number in international format
+  const phoneNumber = import.meta.env.PHONE_NUMBER;
+  // Replace with your WhatsApp number in international format
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -15,7 +16,11 @@ const OrderButton = ({ title, price, quantity, length, width }) => {
       }, 1000);
       toast.error("Please login first"); // Show error message
     } else {
-      const message = `Hello!\n\nI would like to place an order for the following product:\n\n*Product Title:* ${title}\n*Price:* ₹${price}\n*Quantity:* ${quantity}${length ? `\n*Length:* ${length} ft` : ''}${width ? `\n*Width:* ${width} ft` : ''}\n\nCould you please provide me with the next steps? Thank you!`;
+      const message = `Hello!\n\nI would like to place an order for the following product:\n\n*Product Title:* ${title}\n*Price:* ₹${price}\n*Quantity:* ${quantity}${
+        length ? `\n*Length:* ${length} ft` : ""
+      }${
+        width ? `\n*Width:* ${width} ft` : ""
+      }\n\nCould you please provide me with the next steps? Thank you!`;
       const encodedMessage = encodeURIComponent(message);
       window.open(
         `https://wa.me/${phoneNumber}?text=${encodedMessage}`,

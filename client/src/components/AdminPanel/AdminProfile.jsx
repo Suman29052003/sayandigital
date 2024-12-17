@@ -62,14 +62,12 @@ const AdminProfile = () => {
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
         {/* Profile Header */}
         <div className="flex items-center space-x-4 p-6 border-b">
-          <div className="w-full flex flex-col md:flex-row items-center justify-between">
+          <div className="w-full flex flex-col md:flex-row items-center gap-1">
             <h1 className="text-3xl font-bold text-gray-800">
               {admin.username}
             </h1>
             {isAdmin && (
-              <div className="flex w-full items-center">
-                <img className="ml-2 w-12 h-auto" src={greenTick} alt="Admin" />
-              </div>
+              <img className="ml-2 w-6 h-auto" src={greenTick} alt="Admin" />
             )}
           </div>
         </div>
