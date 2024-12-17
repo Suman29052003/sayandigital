@@ -9,22 +9,30 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [firstName, setFirstName] = useState("");
-  const [userId, setUserId] = useState(null);
+  // const [userId, setUserId] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
+  const userId = localStorage.getItem("userId");
 
+  // check admin
+  const checkAdmin = () => {
+    const role = localStorage.getItem("role");
+    if (role == "user") {
+      setIsAdmin(false);
+    } else {
+      setIsAdmin(true);
+    }
+  };
   // Check authentication status whenever component mounts or token changes
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem("token");
       const storedFirstName = localStorage.getItem("firstName");
-      const userid = localStorage.getItem("userId");
-      const role = localStorage.getItem("role");
 
       setIsLoggedIn(!!token);
       setFirstName(storedFirstName || "");
-      setUserId(userid);
-      setIsAdmin(role === "admin");
+      // setUserId(userid);
+      checkAdmin();
     };
 
     checkAuth();
@@ -116,7 +124,10 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <img src={hamIcon} alt="menu" className="w-6 h-6" />
         </button>
 

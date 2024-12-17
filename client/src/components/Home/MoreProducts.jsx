@@ -15,7 +15,7 @@ const MoreProducts = () => {
         console.error("Error fetching products:", error);
       }
     };
-    
+
     fetchProducts(); // Call the fetch function
   }, []);
 
@@ -33,11 +33,10 @@ const MoreProducts = () => {
       {/* Grid container */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 sm:gap-5 mx-auto">
         {products.map((product) => (
-          console.log(product.image),
           <ProductCard
             key={product._id}
             title={product.name}
-            image={ `${baseURL}/${product.image.replace('\\', '/')}`}
+            image={`${baseURL}/${product.image.replace("\\", "/")}`}
             price={product.price}
             subTitle={product.description}
           />

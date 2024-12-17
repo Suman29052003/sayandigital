@@ -15,6 +15,7 @@ const Signup = () => {
     phoneNumber: "",
     city: "",
     pincode: "",
+    role:'user',
     country: "",
   });
 
@@ -58,7 +59,9 @@ const Signup = () => {
       localStorage.setItem("role", data.user.role);
 
       toast.success("Sign Up successful!");
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(()=>{
+        navigate("/login");
+      },2000)
     } catch (err) {
       setError(err.message);
       toast.error("Error: " + err.message);
@@ -210,6 +213,7 @@ const Signup = () => {
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
+              
               <div>
                 <label
                   htmlFor="confirmPassword"
@@ -228,6 +232,26 @@ const Signup = () => {
                 />
               </div>
             </div>
+
+          
+
+            <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Role
+                </label>
+                <input
+                  id="role"
+                  name="role"
+                  disabled
+                  required
+                  value={formData.role}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
