@@ -16,15 +16,16 @@ const AllCategories = () => {
       </div>
       
       {/* Grid container */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5 mx-auto">
+      <div className="w-full grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:m-0 mx-auto ">
         {allCategories.map((item) => (
-          <Link to={`/product/${item.route}`} key={item.id}>
-            <ItemCard 
-              {...item} 
-              width={137} 
-              height={170}  
-            />
-          </Link>
+          <Link to={`/product/${item.route}`} key={item.id} className='flex items-center justify-center m-2 sm:m-0'>
+          <ItemCard 
+            {...item} 
+            width={window.innerWidth <= 640 ? 100 : 137} 
+            height={window.innerWidth <= 640 ? 140 : 170} 
+          />
+        </Link>
+        
         ))}
       </div>
     </div>

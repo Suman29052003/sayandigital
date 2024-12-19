@@ -5,12 +5,11 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Chip from "@mui/joy/Chip";
-import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ id, title, subTitle, price, image }) => {
+const ProductCard = ({ id, title, subTitle, price, image, width, height }) => {
   const truncateTitle = (subTitle) => {
     return subTitle.length > 40 ? subTitle.slice(0, 40) + "..." : subTitle;
   };
@@ -32,24 +31,33 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
     <Card
       id={id}
       sx={{
-        width: {
-          xs: "100%", // Full width on extra small screens
-          sm: 300, // Fixed width on small screens and up
-        },
-        height: {
-          xs: "auto",
-          sm: 410,
-        }, // Allow height to adjust based on content
+        width: width || "100%", // Full width by default
+        maxWidth: 300, // Constrain max width for larger screens
+        height: height || "auto", // Allow auto height
         display: "flex",
         flexDirection: "column",
         boxShadow: "lg",
         borderRadius: "md",
         justifyContent: "space-between",
-        margin: "6px", // Add margin for spacing
+        margin: "12px", // Add margin for spacing
+        overflow: "hidden", // Prevent content overflow
+        "@media (min-width: 640px)": {
+          width: width || 250, // Set specific width for small screens and up
+          height: height || 400,
+        },
+        "@media (min-width: 1024px)": {
+          width: width || 300,
+          height: height || 410,
+        },
       }}
     >
       <CardOverflow>
-        <AspectRatio sx={{ minWidth: 1 / 4,  aspectRatio: "16/9" }}>
+        <AspectRatio
+          sx={{
+            aspectRatio: "16/9", // Maintain aspect ratio
+            // width: "100%", // Full width for responsiveness
+          }}
+        >
           <img
             src={image}
             loading="lazy"
@@ -64,17 +72,20 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
         </AspectRatio>
       </CardOverflow>
       <CardContent sx={{ flex: 1 }}>
-        <Typography style={{ fontSize: "22px", fontWeight: "bold" }}>
+        <Typography
+          sx={{
+            fontSize: { xs: "16px", sm: "20px", lg: "22px" },
+            fontWeight: "bold",
+          }}
+        >
           {title}
         </Typography>
         <Typography
-          href="#product-card"
           color="neutral"
           textColor="text.primary"
           overlay="true"
           endDecorator={<ArrowOutwardIcon />}
-          sx={{ fontWeight: "md" }}
-          level="body-xs"
+          sx={{ fontWeight: "md", fontSize: { xs: "12px", sm: "14px" } }}
         >
           {truncateTitle(subTitle)}
         </Typography>
@@ -87,6 +98,7 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
             color: "orange",
             display: "flex",
             justifyContent: "space-between",
+            fontSize: { xs: "14px", sm: "16px", lg: "18px" },
           }}
           endDecorator={
             <Chip component="span" size="sm" variant="soft" color="success">
@@ -100,7 +112,12 @@ const ProductCard = ({ id, title, subTitle, price, image }) => {
       <Button
         variant="solid"
         color="primary"
-        sx={{ mt: 2, mb: 1 }} // Add margin bottom for spacing
+        sx={{
+          mt: 2,
+          mb: 1,
+          fontSize: { xs: "12px", sm: "14px" },
+          padding: { xs: "6px 12px", sm: "8px 16px" },
+        }}
         onClick={onBuy}
       >
         Buy Now

@@ -30,18 +30,21 @@ const MoreProducts = () => {
         <div className="h-[1px] bg-gray-300 flex-grow"></div>
       </div>
 
-      {/* Grid container */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-4 sm:gap-5 mx-auto">
-        {products.map((product) => (
-          <ProductCard
-            key={product._id}
-            title={product.name}
-            image={`${baseURL}/${product.image.replace("\\", "/")}`}
-            price={product.price}
-            subTitle={product.description}
-          />
-        ))}
-      </div>
+{/* Grid container */}
+<div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center mx-auto px-4 sm:px-6 lg:px-8">
+  {products.map((product) => (
+    <ProductCard
+      key={product._id}
+      title={product.name}
+      image={`${baseURL}/${product.image.replace("\\", "/")}`}
+      price={product.price}
+      subTitle={product.description}
+      width={"100%"}
+height={"auto"}
+      />
+  ))}
+</div>
+
     </div>
   );
 };
